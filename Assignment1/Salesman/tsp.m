@@ -1,10 +1,8 @@
-   function anneal = tsp(n,maxsteps,temp,met)
+   function lt = tsp(n,maxsteps,temp,met)
 %  tsp(n,ms,temp,method) tries to find the shortest path 
 %  that connects n randomly placed cities
 %  method=1 (2) corresponds to Metropolis (threshold) algorithm
 %  ms*100 is the total number of performed steps
-%  temp is the initial temperature, after each 100 steps it
-%  is decreased by 1%.
 
    if (nargin<4)
       met =1;      % default: Metropolis algorithm
@@ -58,7 +56,7 @@
                 '    T(0)=',num2str(temps,'%4.4f')], ...
                 'fontsize',16);
     end
-      pause(0.1);
+      %pause(0.1);
    end
 %  plot evolution of length versus iteration step
       figure(2); plot(0,0); hold on; 
@@ -81,3 +79,4 @@
     lastfifty = lt(meanstart:maxsteps);
     fprintf('The mean of the last fifty elements is %f\n', mean(lastfifty));
     fprintf('The variance of the last fifty elements is %f\n', var(lastfifty));
+    
