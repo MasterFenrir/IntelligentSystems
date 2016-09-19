@@ -12,7 +12,7 @@
 \maketitle
 \section{MatLab code}
 \subsection{Changes to tsp.m}
-The decrease T by 0.1\% was removed.
+The decrease T by 0.1\% was removed to make T a constant value.
 
 \lstinputlisting[language=Matlab, firstline=27, lastline=29]{./Salesman/tsp.m}
 \subsection{plotmean.m}
@@ -24,20 +24,19 @@ To show the impact of the temperature, several values for the temperature have b
 These plots show the value of the temperature on the x-axis against the mean on the y-axis. The standard deviation is displayed around the data points.
 
 \makebox[\textwidth]{\includegraphics[width=\textwidth]{./Salesman/n50s100}} \\
-In this plot, the standard deviation is quite high with higher temperatures, and declines together with the mean. At some point, it becomes unnoticable on the plot.
-When the temperature becomes really small, the mean rises again.
+In this plot, the standard deviation is quite high with higher temperatures, and declines together with the mean. At some point, it becomes unnoticable on the plot.\\
 
 \makebox[\textwidth]{\includegraphics[width=\textwidth]{./Salesman/n250s100}} \\
-Increasing the amount of cities from 50 to 250 also shows an increase of the mean (the y-axis has increased to 8 from 4 to accomodate for the mean) and the standard deviation.
-
-\makebox[\textwidth]{\includegraphics[width=\textwidth]{./Salesman/n250s500}} \\
-By keeping the number of cities (250) but increasing the number of steps to 500, the mean and the standard deviation decrease again. The latter decreases so much it is difficult to see near the lower temperatures.
-
-\makebox[\textwidth]{\includegraphics[width=\textwidth]{./Salesman/n250s1000}} \\
-Increasing the number of steps even further, doubling it to 1000, the mean only becomes slightly lower. The standard deviation becomes difficult to spot one temperature earlier.
+Increasing the amount of cities from 50 to 250 also shows an increase of the mean (the y-axis has increased to 8 from 4 to accomodate for the mean) and the standard deviation. It also shows something odd with the standard deviation. At the higher temperatures, it seems to be quite small compared to the standard deviation at lower temperatures. It is possible that the cause for this is the high degree of random route-changes. The high temperature results is a less greedy algorithm, and thus the distance needs to decrease less. However, this is true for the other plots as well, as shown with the large means at high temperatures. But here, because the number of steps are not nearly enough for 500 cities, very little progress is made. That combined with the lack of direction (i.e., high temperature), results in a somewhat constant distance, which then leads to a small standard deviation.\\
 
 \makebox[\textwidth]{\includegraphics[width=\textwidth]{./Salesman/n1250s100}} \\
-Increasing the number of cities to 1250, but only taking 100 steps results in this plot. The mean is higher than in the other plots. The standard devation does something odd. At the higher temperatures, it seems to be quite small. It is possible that the cause for this is the high degree of random route-changes. The high temperature results is a less greedy algorithm, and thus the distance needs to decrease less. However, this is true for the other plots as well, as shown with the large means at high temperatures. But here, because the number of steps are not nearly enough for 500 cities, very little progress is made. That combined with the lack of direction (i.e., high temperature), results in a somewhat constant distance, which then leads to a small standard deviation.
+Increasing the number of cities to 1250, but only taking 100 steps results in this plot, which has the similar oddity in the standard deviation as the previous one.\\
+
+\makebox[\textwidth]{\includegraphics[width=\textwidth]{./Salesman/n250s500}} \\
+By keeping the number of cities (250) but increasing the number of steps to 500, the mean and the standard deviation decrease again. The latter decreases so much it is difficult to see near the lower temperatures.\\
+
+\makebox[\textwidth]{\includegraphics[width=\textwidth]{./Salesman/n250s1000}} \\
+Increasing the number of steps even further, doubling it to 1000, the mean only becomes slightly lower. The standard deviation becomes difficult to spot one temperature earlier.\\
 
 \section{T-Dependance}
 In every plot seen, a lower temperature resulted in a shorter distance. Running the algorithm with a lower temperature makes it more greedy. In a sense, it encourages the algorithm to go for the shorter distances. When the temperature is higher, this push for a short distance is made a lot less, thus resulting in a longer distance.
