@@ -25,6 +25,7 @@
    ord = [1:n];  op = path(ord,cities);
     
    for jstep=1:ceil(maxsteps);
+%        temps = temps * 0.999;
        for ins = 1:100 
           j = ceil(rand*n); len = ceil(rand*(n/2));
           cand = reverse(ord,j,len);

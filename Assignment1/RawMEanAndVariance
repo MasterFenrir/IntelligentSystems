@@ -1,89 +1,137 @@
 n: 50 and steps: 100
 
-mean: 3.035448 
-varience: 0.051248 
-mean: 2.095155 
-varience: 0.023829 
-mean: 1.437282 
-varience: 0.009604 
-mean: 0.940276 
-varience: 0.000348 
-mean: 0.902241 
-varience: 0.000232 
-mean: 0.972220 
-varience: 0.000053 
+mean: 3.392566 
+varience: 0.091598 
+mean: 2.835427 
+varience: 0.041226 
+mean: 2.067862 
+varience: 0.024817 
+mean: 1.367100 
+varience: 0.007420 
+mean: 0.961599 
+varience: 0.001624 
+mean: 0.833916 
+varience: 0.000062 
+mean: 0.831686 
+varience: 0.000228 
+mean: 0.873127 
+varience: 0.000136 
+mean: 0.880706 
+varience: 0.000165 
+mean: 0.956209 
+varience: 0.000210 
 
-n: 100 and steps: 100
+n: 250 and steps: 100
 
-mean: 4.166305 
-varience: 0.055478 
-mean: 2.878625 
-varience: 0.021040 
-mean: 1.752709 
-varience: 0.014418 
-mean: 1.248603 
-varience: 0.002861 
-mean: 1.005502 
-varience: 0.001556 
-mean: 1.009060 
-varience: 0.001598 
+mean: 7.173894 
+varience: 0.029125 
+mean: 6.558128 
+varience: 0.061037 
+mean: 4.654105 
+varience: 0.019002 
+mean: 2.950198 
+varience: 0.008318 
+mean: 2.111765 
+varience: 0.012683 
+mean: 2.077891 
+varience: 0.017684 
+mean: 2.005212 
+varience: 0.031074 
+mean: 1.938422 
+varience: 0.024923 
+mean: 1.976041 
+varience: 0.021399 
+mean: 1.897384 
+varience: 0.022859 
 
-n: 150 and steps: 100
+n: 1250 and steps: 100
 
-mean: 5.069643 
-varience: 0.043004 
-mean: 3.730942 
-varience: 0.015050 
-mean: 2.228072 
-varience: 0.011374 
-mean: 1.457717 
-varience: 0.005077 
-mean: 1.330668 
-varience: 0.006618 
-mean: 1.294882 
-varience: 0.008134 
+mean: 10.327984 
+varience: 0.021831 
+mean: 9.367223 
+varience: 0.025280 
+mean: 6.496922 
+varience: 0.021876 
+mean: 4.635225 
+varience: 0.058775 
+mean: 3.891651 
+varience: 0.085397 
+mean: 3.726717 
+varience: 0.110392 
+mean: 3.596191 
+varience: 0.114876 
+mean: 3.577818 
+varience: 0.086698 
+mean: 3.650689 
+varience: 0.108634 
+mean: 3.692955 
+varience: 0.110407 
 
-n: 100 and steps: 100
+n: 250 and steps: 100 
 
-mean: 4.166305 
-varience: 0.055478 
-mean: 2.878625 
-varience: 0.021040 
-mean: 1.752709 
-varience: 0.014418 
-mean: 1.248603 
-varience: 0.002861 
-mean: 1.005502 
-varience: 0.001556 
-mean: 1.009060 
-varience: 0.001598 
+mean: 7.173894 
+varience: 0.029125 
+mean: 6.558128 
+varience: 0.061037 
+mean: 4.654105 
+varience: 0.019002 
+mean: 2.950198 
+varience: 0.008318 
+mean: 2.111765 
+varience: 0.012683 
+mean: 2.077891 
+varience: 0.017684 
+mean: 2.005212 
+varience: 0.031074 
+mean: 1.938422 
+varience: 0.024923 
+mean: 1.976041 
+varience: 0.021399 
+mean: 1.897384 
+varience: 0.022859 
 
-n: 100 and steps: 150
+n: 250 and steps: 500
 
-mean: 4.138726 
-varience: 0.060828 
-mean: 2.750407 
-varience: 0.043695 
-mean: 1.686188 
-varience: 0.005758 
-mean: 1.122269 
-varience: 0.000409 
-mean: 0.919768 
-varience: 0.000268 
-mean: 0.958275 
-varience: 0.000554 
+mean: 7.236524 
+varience: 0.074871 
+mean: 6.589001 
+varience: 0.048304 
+mean: 4.456594 
+varience: 0.016113 
+mean: 2.686895 
+varience: 0.014695 
+mean: 1.563558 
+varience: 0.000275 
+mean: 0.984640 
+varience: 0.000011 
+mean: 0.961741 
+varience: 0.000008 
+mean: 0.879853 
+varience: 0.000002 
+mean: 0.841490 
+varience: 0.000000 
+mean: 0.881228 
+varience: 0.000096 
 
-n: 100 and steps: 200
+n: 250 and steps: 1000
 
-mean: 4.268230 
-varience: 0.051280 
-mean: 2.888233 
-varience: 0.015792 
-mean: 1.719670 
-varience: 0.008990 
-mean: 1.100194 
-varience: 0.000769 
-mean: 0.903678 
-varience: 0.000035 
-mean: 0.874859 
-varience: 0.000146 
+mean: 7.236524 
+varience: 0.074871 
+mean: 6.589001 
+varience: 0.048304 
+mean: 4.456594 
+varience: 0.016113 
+mean: 2.686895 
+varience: 0.014695 
+mean: 1.563558 
+varience: 0.000275 
+mean: 0.984640 
+varience: 0.000011 
+mean: 0.961741 
+varience: 0.000008 
+mean: 0.879853 
+varience: 0.000002 
+mean: 0.841490 
+varience: 0.000000 
+mean: 0.881228 
+varience: 0.000096 
