@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.19)  19 SEP 2016 12:27
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2016.4.9)  19 SEP 2016 11:15
->>>>>>> 8e097defb0a09828e9d184897f05e0e54e60a972
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.19)  19 SEP 2016 13:40
 entering extended mode
 **./Assignment1.tex
 (Assignment1.tex
@@ -552,20 +548,14 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (C:\Users\Sander\AppData\Roaming\MiKTeX\2.9\tex\latex\listings\lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-<<<<<<< HEAD
-(Salesman/plotmean.m
-=======
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 12--13
-
- []
-
-(./Salesman/plotmean.m
->>>>>>> 8e097defb0a09828e9d184897f05e0e54e60a972
+(Salesman/tsp.m
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 29.
+ ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 29.
+) (Salesman/plotmean.m
 Overfull \hbox (27.00378pt too wide) in paragraph at lines 12--13
 [][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -575,46 +565,29 @@ Overfull \hbox (9.0036pt too wide) in paragraph at lines 14--15
 [][][][][][][][][][][][][][][][] 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 15.
-("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 15.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--16
-
- []
-
-(./Salesman/tsp.m) [1
+) [1
 
 {C:/Users/Sander/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 <./Salesman/n50steps100.png, id=12, 1445.4pt x 743.77875pt>
 File: ./Salesman/n50steps100.png Graphic file (type png)
 
 <use ./Salesman/n50steps100.png>
-Package pdftex.def Info: ./Salesman/n50steps100.png used on input line 25.
+Package pdftex.def Info: ./Salesman/n50steps100.png used on input line 27.
 (pdftex.def)             Requested size: 597.50787pt x 307.47076pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 25--26
+Overfull \hbox (15.0pt too wide) in paragraph at lines 27--28
 [][] 
  []
 
 [2 <./Salesman/n50steps100.png>] (Assignment1.aux) ) 
 Here is how much of TeX's memory you used:
-<<<<<<< HEAD
- 4923 strings out of 493334
- 62526 string characters out of 3136669
- 164378 words of memory out of 3000000
- 8386 multiletter control sequences out of 15000+200000
+ 4931 strings out of 493334
+ 62613 string characters out of 3136669
+ 170690 words of memory out of 3000000
+ 8391 multiletter control sequences out of 15000+200000
  11849 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,6n,43p,241b,1852s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,6n,43p,241b,1808s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTe
 X 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 
@@ -623,24 +596,7 @@ X 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX
 nts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts
 /type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
 ype1/public/amsfonts/cm/cmti10.pfb>
-Output written on Assignment1.pdf (2 pages, 121217 bytes).
-=======
- 3694 strings out of 493027
- 44076 string characters out of 6134076
- 147725 words of memory out of 5000000
- 7227 multiletter control sequences out of 15000+600000
- 10937 words of font info for 43 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 30i,6n,43p,228b,1853s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm
-/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy1
-0.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10
-.pfb>
-Output written on Assignment1.pdf (1 page, 76697 bytes).
->>>>>>> 8e097defb0a09828e9d184897f05e0e54e60a972
+Output written on Assignment1.pdf (2 pages, 122161 bytes).
 PDF statistics:
  40 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
