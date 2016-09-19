@@ -1,0 +1,29 @@
+n = 50;
+maxsteps = 100;
+temp = [0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5];
+method = 1;
+
+meanresults = zeros(size(temp));
+standarddeviationresults = zeros(size(temp));
+
+% Try the different temperatures
+for index = 1:lengthe(temp)
+    results = tsp(n, maxsteps, temp(index), method, index);
+    
+    fprintf('Results: %f\n', results(1));
+    fprintf('Results length: %f\n', length(results));
+    
+    lastFifty = results(length(results) - 50:length(results));
+    meanresults(index) = mean(lastFifty);
+    standarddeviationresults(index) = sqrt(var(lastFifty));
+end
+
+% Plot the results in a graph
+figure(length(temp) + 1); semilogx(0,0); hold on;
+semilogx(temp, meanresults);
+errorbar(temp, meanresults, standarddeviationresults)
+title(['n =',num2str(n,'%d'),       ...
+             '   Steps =',num2str(maxsteps,'%d')],   ... 
+             'fontsize',16);
+xlabel(['Temperatures'],'fontsize',16);
+ylabel(['Mean'],'fontsize',16);
