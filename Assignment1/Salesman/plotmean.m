@@ -1,5 +1,5 @@
 n = 250;
-maxsteps = 500;
+maxsteps = 1000;
 temp = [1, 0.5, 0.2 ,0.1 ,0.05 ,0.02 ,0.01, 0.005, 0.002, 0.001];
 method = 1;
 
@@ -24,6 +24,7 @@ errorbar(temp, meanresults, standarddeviationresults)
 title(['n = ',num2str(n,'%d'),       ...
              '   Steps = ',num2str(maxsteps,'%d')],   ... 
              'fontsize',16);
+set(gca,'fontsize',16);
 xlabel(['Temperatures'],'fontsize',16);
 ylabel(['Mean'],'fontsize',16);
 set(gca,'fontsize',16)
