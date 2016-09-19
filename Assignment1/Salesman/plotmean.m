@@ -26,3 +26,4 @@ title(['n = ',num2str(n,'%d'),       ...
              'fontsize',16);
 xlabel(['Temperatures'],'fontsize',16);
 ylabel(['Mean'],'fontsize',16);
+set(gca,'fontsize',16)

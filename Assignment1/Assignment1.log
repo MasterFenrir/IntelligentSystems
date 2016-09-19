@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.19)  19 SEP 2016 15:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (MiKTeX 2.9) (preloaded format=pdflatex 2016.9.19)  19 SEP 2016 16:14
 entering extended mode
 **./Assignment1.tex
 (Assignment1.tex
@@ -572,84 +572,67 @@ Overfull \hbox (9.0036pt too wide) in paragraph at lines 14--15
 
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 15.
-) [1
+[1
 
-{C:/Users/Sander/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<./Salesman/n50s100.png, id=12, 1445.4pt x 743.77875pt>
+{C:/Users/Sander/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}])
+<./Salesman/n50s100.png, id=12, 1167.61218pt x 664.73344pt>
 File: ./Salesman/n50s100.png Graphic file (type png)
 
 <use ./Salesman/n50s100.png>
 Package pdftex.def Info: ./Salesman/n50s100.png used on input line 26.
-(pdftex.def)             Requested size: 597.50787pt x 307.47076pt.
+(pdftex.def)             Requested size: 345.0pt x 196.4091pt.
 
 Overfull \hbox (15.0pt too wide) in paragraph at lines 26--28
 [][] 
  []
 
-<./Salesman/n250s100.png, id=13, 1445.4pt x 743.77875pt>
+<./Salesman/n250s100.png, id=13, 1158.57843pt x 664.73344pt>
 File: ./Salesman/n250s100.png Graphic file (type png)
 
 <use ./Salesman/n250s100.png>
 Package pdftex.def Info: ./Salesman/n250s100.png used on input line 29.
-(pdftex.def)             Requested size: 597.50787pt x 307.47076pt.
+(pdftex.def)             Requested size: 345.0pt x 197.94069pt.
 
 Overfull \hbox (15.0pt too wide) in paragraph at lines 29--31
 [][] 
  []
 
-[2 <./Salesman/n50s100.png (PNG copy)>]
-<./Salesman/n250s500.png, id=17, 1445.4pt x 743.77875pt>
+<./Salesman/n250s500.png, id=14, 1158.57843pt x 664.73344pt>
 File: ./Salesman/n250s500.png Graphic file (type png)
 
 <use ./Salesman/n250s500.png>
 Package pdftex.def Info: ./Salesman/n250s500.png used on input line 32.
-(pdftex.def)             Requested size: 597.50787pt x 307.47076pt.
+(pdftex.def)             Requested size: 345.0pt x 197.94069pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 32--33
+Overfull \hbox (15.0pt too wide) in paragraph at lines 32--34
 [][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 32--33
-
- []
-
-[3 <./Salesman/n250s100.png (PNG copy)>]
-<./Salesman/n250s1000.png, id=21, 1445.4pt x 743.77875pt>
+[2 <./Salesman/n50s100.png (PNG copy)> <./Salesman/n250s100.png (PNG copy)>]
+<./Salesman/n250s1000.png, id=18, 1158.57843pt x 664.73344pt>
 File: ./Salesman/n250s1000.png Graphic file (type png)
 
 <use ./Salesman/n250s1000.png>
 Package pdftex.def Info: ./Salesman/n250s1000.png used on input line 35.
-(pdftex.def)             Requested size: 597.50787pt x 307.47076pt.
+(pdftex.def)             Requested size: 345.0pt x 197.94069pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 35--36
+Overfull \hbox (15.0pt too wide) in paragraph at lines 35--37
 [][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 35--36
-
- []
-
-[4 <./Salesman/n250s500.png (PNG copy)>]
-<./Salesman/n500s100.png, id=25, 1445.4pt x 743.77875pt>
+<./Salesman/n500s100.png, id=19, 1164.60094pt x 664.73344pt>
 File: ./Salesman/n500s100.png Graphic file (type png)
 
 <use ./Salesman/n500s100.png>
-Package pdftex.def Info: ./Salesman/n500s100.png used on input line 37.
-(pdftex.def)             Requested size: 597.50787pt x 307.47076pt.
+Package pdftex.def Info: ./Salesman/n500s100.png used on input line 38.
+(pdftex.def)             Requested size: 345.0pt x 196.91624pt.
 
-Overfull \hbox (15.0pt too wide) in paragraph at lines 37--38
+Overfull \hbox (15.0pt too wide) in paragraph at lines 38--40
 [][] 
  []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 37--38
-
- []
-
-[5 <./Salesman/n250s1000.png (PNG copy)>] [6 <./Salesman/n500s100.png (PNG copy
-)>] (Assignment1.aux) ) 
+[3 <./Salesman/n250s500.png (PNG copy)> <./Salesman/n250s1000.png (PNG copy)>]
+[4 <./Salesman/n500s100.png (PNG copy)>] (Assignment1.aux) ) 
 Here is how much of TeX's memory you used:
  4949 strings out of 493334
  63071 string characters out of 3136669
@@ -657,18 +640,18 @@ Here is how much of TeX's memory you used:
  8405 multiletter control sequences out of 15000+200000
  11849 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,6n,43p,256b,1840s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/am
-sfonts/cm/cmbx10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsf
-onts/cm/cmbx12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfon
-ts/cm/cmr10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmr12.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/
-cmr17.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cms
-y10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti1
-0.pfb>
-Output written on Assignment1.pdf (6 pages, 230046 bytes).
+ 40i,6n,43p,801b,1840s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files (
+x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)
+/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files (x86)/Mi
+KTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program Files (x86)/MiKTeX 2
+.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9
+/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Assignment1.pdf (4 pages, 221599 bytes).
 PDF statistics:
- 54 PDF objects out of 1000 (max. 8388607)
+ 48 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 
