@@ -72,11 +72,3 @@
     end
         ylabel(['l'],'fontsize',16);
     
-%     meanstart = maxsteps - 49;
-%     if (meanstart < 1)
-%         meanstart = 1;
-%     end
-%     lastfifty = lt(meanstart:maxsteps);
-%     fprintf('The mean of the last fifty elements is %f\n', mean(lastfifty));
-%     fprintf('The variance of the last fifty elements is %f\n', var(lastfifty));
-    
