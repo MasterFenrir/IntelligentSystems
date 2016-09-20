@@ -180,7 +180,10 @@ TSWLatexianTemp*
 *~[0-9]*
 
 # Archives
-.zip
+*.zip
 
 # Specific file
 Assignment2.pdf
+
+*.m~
+*.asv
