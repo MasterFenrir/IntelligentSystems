@@ -13,6 +13,7 @@ xlabel(['X'],'fontsize',16);
 ylabel(['Y'],'fontsize',16);
 set(gca,'fontsize',16)
 hold off;
+pause(2);
 
 end
 

@@ -28,7 +28,7 @@ function [ prototypes ] = vectorQuantization( dataset, numberOfPrototypes, updat
             prototypes(distances == m, :) = updated;
         end
         
-        prototypes
+        plotVQ(epoch, dataset, prototypes);
     end
 end
 
