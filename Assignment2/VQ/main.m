@@ -9,16 +9,14 @@ z = w6_1z;
 [yP, yN] = size(y);
 [zP, zN] = size(z);
 
-dataSets = [x, y, z];
+dataSets = [x, y, z]; %todo make this higher demensional
 
-K = 3;
-n = 0.1;
-mu = 'constantProduct';
-tMax = 2;
+numberOfPrototypes = 3;
+updateStrat = 'constantProduct';
+tMax = 5;
 prototypeStrat = 'randomDataPoints';
 
-resultPrototypes = zeros(length(datasets));
-
 for idx = 1:3
-    resultPrototypes(idx) = vectorQuantization(dataSets(idx), k, n, mu, tMax, prototypeStrat);
+    fprintf('one round done!')
+    resultPrototypes = vectorQuantization(dataSets(:, idx:idx+1), numberOfPrototypes, updateStrat, tMax, prototypeStrat);
 end
