@@ -1,4 +1,4 @@
-function plot(setNumber, tMax, k, n, results )
+function plotLearningCurve(setNumber, tMax, k, n, results )
 %PLOT Plot the quantization error as a function of the epochs
 
     figure(setNumber);

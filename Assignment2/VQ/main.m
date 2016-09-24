@@ -7,12 +7,13 @@ z = w6_1z;
 
 dataSets = {x, y, z};
 
-numberOfPrototypes = 3;
-updateStrat = 'constantProduct';
-tMax = 100;
+numberOfPrototypes = 2;
+updateStrat = 'changeDistance';
+learning = 0.1;
+tMax = 1000;
 prototypeStrat = 'randomDataPoints';
 
-for idx = 1:3
-    [resultPrototypes, quantizationErrors] = vectorQuantization(idx, dataSets{idx}, numberOfPrototypes, updateStrat, tMax, prototypeStrat);
-    plotLearningCurve(idx + length(dataSets), tMax, numberOfPrototypes, 0.1, quantizationErrors);
+for idx = 1:length(dataSets)
+    [resultPrototypes, quantizationErrors] = vectorQuantization(idx, dataSets{idx}, numberOfPrototypes, updateStrat, learning, tMax, prototypeStrat);
+    plotLearningCurve(idx + length(dataSets), tMax, numberOfPrototypes, learning, quantizationErrors);
 end
