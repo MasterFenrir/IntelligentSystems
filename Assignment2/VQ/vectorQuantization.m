@@ -1,4 +1,4 @@
-function [ prototypes ] = vectorQuantization( dataset, numberOfPrototypes, updateStrat, tMax, prototypeStrat )
+function [ prototypes, quantizationErrors ] = vectorQuantization( setNumber, dataset, numberOfPrototypes, updateStrat, tMax, prototypeStrat )
 %VECTORQUANTIZATION Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -12,23 +12,19 @@ function [ prototypes ] = vectorQuantization( dataset, numberOfPrototypes, updat
 % Plot the quantization error as a function of t
     prototypes = feval(prototypeStrat, dataset, numberOfPrototypes);
     [numberOfDataPoints, ~] = size(dataset);
+    quantizationErrors = zeros(1, tMax);
     
     for epoch = 1:tMax
         data = datasample(dataset, numberOfDataPoints, 'replace', false);
         
         for idx = 1:numberOfDataPoints
             datapoint = data(idx, :);
-            
-            distances = pdist(vertcat(datapoint, prototypes), 'euclidean');
-            distances = distances(1:length(prototypes));
-            
-            m = min(distances);
-            selected = prototypes(distances == m, :);
+            [minimum, distances, selected] = euclidean(datapoint, prototypes);
             updated = feval(updateStrat, selected, datapoint);
-            prototypes(distances == m, :) = updated;
+            prototypes(distances == minimum, :) = updated;
         end
-        
-        plotVQ(epoch, dataset, prototypes);
+        quantizationErrors(epoch) = quantizationError(dataset, prototypes);
+        plotVQ(setNumber, epoch, dataset, prototypes);
     end
 end
 

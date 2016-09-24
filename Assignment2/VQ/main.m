@@ -5,18 +5,14 @@ x = w6_1x;
 y = w6_1y;
 z = w6_1z;
 
-[xP, xN] = size(x);
-[yP, yN] = size(y);
-[zP, zN] = size(z);
-
-dataSets = [x, y, z]; %todo make this higher demensional
+dataSets = {x, y, z};
 
 numberOfPrototypes = 3;
 updateStrat = 'constantProduct';
-tMax = 5;
+tMax = 100;
 prototypeStrat = 'randomDataPoints';
 
 for idx = 1:3
-    fprintf('one round done!')
-    resultPrototypes = vectorQuantization(dataSets(:, idx:idx+1), numberOfPrototypes, updateStrat, tMax, prototypeStrat);
+    [resultPrototypes, quantizationErrors] = vectorQuantization(idx, dataSets{idx}, numberOfPrototypes, updateStrat, tMax, prototypeStrat);
+    plotLearningCurve(idx + length(dataSets), tMax, numberOfPrototypes, 0.1, quantizationErrors);
 end
