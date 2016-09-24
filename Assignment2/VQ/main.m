@@ -7,7 +7,7 @@ z = w6_1z;
 
 dataSets = {x, y, z};
 
-numberOfPrototypes = 2;
+numberOfPrototypes = 4;
 updateStrat = 'changeDistance';
 learning = 0.1;
 tMax = 1000;
