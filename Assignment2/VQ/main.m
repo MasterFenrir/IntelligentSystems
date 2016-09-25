@@ -7,10 +7,10 @@ z = w6_1z;
 
 dataSets = {x, y, z};
 
-numberOfPrototypes = 4;
+numberOfPrototypes = 8;
 updateStrat = 'changeDistance';
-learning = 0.1;
-tMax = 1000;
+learning = 0.004;
+tMax = 10;
 prototypeStrat = 'randomDataPoints';
 
 for idx = 1:length(dataSets)

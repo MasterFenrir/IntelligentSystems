@@ -15,6 +15,6 @@ function plotVQ( setNumber, epoch, dataset, prototypes )
     xlabel(['X'],'fontsize',16);
     ylabel(['Y'],'fontsize',16);
     set(gca,'fontsize',16)
-    pause(0.01);
+%     pause(1);
 end
 
