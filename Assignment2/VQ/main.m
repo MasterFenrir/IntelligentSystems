@@ -10,7 +10,7 @@ dataSets = {x};
 numberOfPrototypes = 4;
 updateStrat = 'changeDistance';
 %learning = 0.004;
-learning = 0.004;
+learning = 0.001;
 tMax = 10;
 prototypeStrat = 'randomDataPoints';
 
