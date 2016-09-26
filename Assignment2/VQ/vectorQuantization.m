@@ -24,7 +24,7 @@ function [ prototypes, quantizationErrors ] = vectorQuantization( setNumber, dat
             prototypes(distances == minimum, :) = updated;
         end
         quantizationErrors(epoch) = quantizationError(dataset, prototypes);
-        plotVQ(setNumber, epoch, dataset, prototypes);
+        plotVQ(setNumber, epoch, learning, dataset, prototypes);
     end
 end
 

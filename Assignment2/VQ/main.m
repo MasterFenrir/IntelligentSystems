@@ -5,10 +5,11 @@ x = w6_1x;
 y = w6_1y;
 z = w6_1z;
 
-dataSets = {x, y, z};
+dataSets = {x};
 
-numberOfPrototypes = 8;
+numberOfPrototypes = 4;
 updateStrat = 'changeDistance';
+%learning = 0.004;
 learning = 0.004;
 tMax = 10;
 prototypeStrat = 'randomDataPoints';
