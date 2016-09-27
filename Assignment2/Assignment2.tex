@@ -45,39 +45,91 @@ The following code was created to obtain the plots.
 \lstinputlisting[language=Matlab]{./VQ/plotLearningCurve.m}
 
 \section{Plots}
-For plotting, dataset x was chosen. The values for the learning rate were 0.1, 0.01, 0.001, 0.004. ??
+For plotting, dataset x was chosen. The values for the learning rate were 0.1, 0.01 and 0.001.
 
-\makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n01_k2}} \\
+\begin{figure}
+  \centering
+    \makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n01_k2}} \\
+  \caption{Scatter, n = 0.1, 2 prototypes}
+  \label{fig:n01_k2}
+\end{figure}
 
+\begin{figure}
+  \centering
 \makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n01_k2_learning}} \\
+  \caption{Quantization Error, n = 0.1, 2 prototypes}
+  \label{fig:n01_k2_learning}
+\end{figure}
 
+\begin{figure}
+  \centering
 \makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n001_k2}} \\
+  \caption{Scatter, n = 0.01, 2 prototypes}
+  \label{fig:gull}
+\end{figure}
 
+\begin{figure}
+  \centering
 \makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n001_k2_learning}} \\
+  \caption{Quantization Error, n = 0.01, 2 prototypes}
+  \label{fig:n001_k2_learning}
+\end{figure}
 
-\makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n0004_k2}} \\
-
-\makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n0004_k2_learning}} \\
-
+\begin{figure}
+  \centering
 \makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n0001_k2}} \\
+  \caption{Scatter, n = 0.001, 2 prototypes}
+  \label{fig:n0001_k2}
+\end{figure}
 
+\begin{figure}
+  \centering
 \makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n0001_k2_learning}} \\
+  \caption{Quantization Error, n = 0.001, 2 prototypes}
+  \label{fig:n0001_k2_learning}
+\end{figure}
 
+\begin{figure}
+  \centering
 \makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n01_k4}} \\
+  \caption{Scatter, n = 0.1, 4 prototypes}
+  \label{fig:n01_k4}
+\end{figure}
 
+\begin{figure}
+  \centering
 \makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n01_k4_learning}} \\
+  \caption{Quantization Error, n = 0.1, 4 prototypes}
+  \label{fig:n01_k4_learning}
+\end{figure}
 
+\begin{figure}
+  \centering
 \makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n001_k4}} \\
+  \caption{Scatter, n = 0.01, 4 prototypes}
+  \label{fig:n001_k4}
+\end{figure}
 
+\begin{figure}
+  \centering
 \makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n001_k4_learning}} \\
+  \caption{Quantization Error, n = 0.01, 4 prototypes}
+  \label{fig:n001_k4_learning}
+\end{figure}
 
-\makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n0004_k4}} \\
-
-\makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n0004_k4_learning}} \\
-
+\begin{figure}
+  \centering
 \makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n0001_k4}} \\
+  \caption{Scatter, n = 0.001, 4 prototypes}
+  \label{fig:n0001_k4}
+\end{figure}
 
+\begin{figure}
+  \centering
 \makebox[\textwidth]{\includegraphics[width=\textwidth]{./VQ/x_e10_n0001_k4_learning}} \\
+  \caption{Quantization Error, n = 0.001, 4 prototypes}
+  \label{fig:n0001_k4_learning}
+\end{figure}
 
 \section{Discussion}
 At higher learning rates, the quantization error does not seem to clearly improve over time. This could be the result of large movements accross the datapoints, or the local minimum is reached quickly. By lowering the learning rate, the quantization errors becomes more constant at first, and then start dropping. However, they all become relatively constant after only a few epochs except for one. 
