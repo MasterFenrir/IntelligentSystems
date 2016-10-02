@@ -4,8 +4,8 @@ function [ imageSobelX, imageSobelY ] = sobel( image, edgeOption )
     if(nargin < 2) 
         edgeOption = 'replicate';
     end
-    sobelX = [-1,-2,-1;0,0,0;1,2,1];
-    sobelY = sobelX.';
+    sobelX = fspecial('sobel').';
+    sobelY = fspecial('sobel');
     imageMatrix = im2double(imread(image));
     
     imageSobelX = imfilter(imageMatrix, sobelX, edgeOption, 'conv');
