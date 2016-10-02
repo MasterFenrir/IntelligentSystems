@@ -7,17 +7,17 @@ function [] = displayEdgedetections( chestImage, figureStart )
 [sobelResult] = sobel(chestImage);
 [prewittResult] = prewitt(chestImage);
 
-figure(figureStart);
-imshow(sdResult);
+%figure(figureStart);
+%imshow(sdResult);
 
-figure(figureStart + 1);
-imshow(robertResult);
+%figure(figureStart + 1);
+%imshow(robertResult);
 
 figure(figureStart + 2);
 imshow(sobelResult);
 
-figure(figureStart + 3);
-imshow(prewittResult);
+%figure(figureStart + 3);
+%imshow(prewittResult);
 
 end
 

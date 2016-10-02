@@ -11,3 +11,9 @@
 % imeroder(<imageMatrix>,<stucturingElement>) for erotion
 chestImage = im2double(imread('chest.pgm'));
 displayEdgedetections(chestImage, 1);
+
+chestImage = imnoise(chestImage, 'gaussian', 0.0, 0.001);
+displayEdgedetections(chestImage, 6);
+
+chestImage = imnoise(chestImage, 'gaussian', 0.0, 0.1);
+displayEdgedetections(chestImage, 10);
