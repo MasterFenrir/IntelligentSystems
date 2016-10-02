@@ -1,4 +1,4 @@
-function [ result, deltaX, deltaY ] = simpleDifferentiation( image, borderSolution)
+function [ result, deltaX, deltaY ] = SimpleDifferentiation( image, borderSolution)
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -7,7 +7,7 @@ function [ result, deltaX, deltaY ] = simpleDifferentiation( image, borderSoluti
     end
 
     deltaXMask = [0 0 0;-1 1 0;0 0 0];
-    deltaYMask = [0 -1 0;0 1 0;0 0 0];
+    deltaYMask = deltaXMask.';
     deltaX = imfilter(image, deltaXMask, borderSolution, 'conv');
     deltaY = imfilter(image, deltaYMask, borderSolution, 'conv');
     

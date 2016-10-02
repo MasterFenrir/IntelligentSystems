@@ -10,14 +10,4 @@
 % imdilate(<imageMatrix>,<stucturingElement>) for dilation
 % imeroder(<imageMatrix>,<stucturingElement>) for erotion
 chestImage = im2double(imread('chest.pgm'));
-
-[x, y] = sobel('chest.pgm');
-
-figure(1);
-imshow(x);
-
-figure(2);
-imshow(y);
-
-figure(3);
-imshow(x+y);
+displayEdgedetections(chestImage, 1);

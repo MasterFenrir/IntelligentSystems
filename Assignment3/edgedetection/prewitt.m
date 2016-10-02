@@ -7,7 +7,7 @@ function [ result, deltaX, deltaY ] = prewitt( image, borderSolution)
     end
 
     deltaXMask = [-1 -1 -1;0 0 0;1 1 1];
-    deltaYMask = [-1 0 1;-1 0 1;-1 0 1];
+    deltaYMask = deltaXMask.';
     deltaX = imfilter(image, deltaXMask, borderSolution, 'conv');
     deltaY = imfilter(image, deltaYMask, borderSolution, 'conv');
     
