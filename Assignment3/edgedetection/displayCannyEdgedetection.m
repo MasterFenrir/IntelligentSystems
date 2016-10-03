@@ -12,7 +12,7 @@ function [ ] = displayCannyEdgedetection( image )
 
 
     %displayCanyEdgeDetectionSpecific(image);
-    displayCanyEdgeDetectionSpecific(image, 'no noise ');
+    %displayCanyEdgeDetectionSpecific(image, 'no noise ');
 
 
      %mediumNoise = imnoise(image, 'gaussian', 0.0, 0.001);
