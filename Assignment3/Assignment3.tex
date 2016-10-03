@@ -33,8 +33,8 @@ The following code was created for edge detection and boundary detection.
 \subsection{prewitt.m}
 \lstinputlisting[language=Matlab]{./edgedetection/prewitt.m}
 
-%\subsection{cannyEdgedetection.m}
-%\lstinputlisting[language=Matlab]{./edgedetection/cannyEdgedetection.m}
+\subsection{displayCannyEdgeDetectionSpecific.m}
+\lstinputlisting[language=Matlab]{./edgedetection/displayCannyEdgeDetectionSpecific.m}
 
 \subsection{boundaryExtraction.m}\label{list:boundaryExtraction}
 \lstinputlisting[language=Matlab]{./edgedetection/boundaryExtraction.m}
@@ -78,19 +78,30 @@ This document was written by both.
 \subsection{Prewitt}
 \input{prewitt}
 
+\section{Canny images}
+\subsection{No noise}
+\input{cany}
+\subsection{Medium noise}
+\input{medium_noise}
+\subsection{Heavy noise}
+\input{heavy_noise}
 
 \section{Surround suppression images}
 \subsection{kanisza}
+\input{kanisza_original}
+\subsubsection{kanisza, alpha = 2}
 \input{kanisza_a2}
+\subsubsection{kanisza, alpha = 4}
 \input{kanisza_a4}
+\subsubsection{kanisza, alpha = 5}
 \input{kanisza_a5}
 
 
 \subsection{popout}
+\input{popout_original}
+\subsubsection{popout, alpha = 3}
 \input{popout_a3}
+\subsubsection{popout, alpha = 4}
 \input{popout_a4}
-
-\input{heavy_noise}
-\input{medium_noise}
 
 \end{document}
