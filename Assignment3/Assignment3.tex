@@ -5,6 +5,10 @@
 \usepackage{amssymb}
 \usepackage{listings}
 \usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage{morefloats}
 \lstset{showstringspaces=false,
 		breaklines=true,
 		postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow\space}}}
@@ -32,11 +36,16 @@ The following code was created for edge detection and boundary detection.
 %\subsection{cannyEdgedetection.m}
 %\lstinputlisting[language=Matlab]{./edgedetection/cannyEdgedetection.m}
 
-\subsection{boundaryExtraction.m}
+\subsection{boundaryExtraction.m}\label{list:boundaryExtraction}
 \lstinputlisting[language=Matlab]{./edgedetection/boundaryExtraction.m}
 
 \section{Edge Detection}
 While all the results suffer from noise, the Simple Differentiation and the Roberts algorithm become nearly unrecognisable, while the others still show clear lines.
+
+
+\section{Boundary Extraction}
+For exercise 2.2 a simple boundary extractor was build as can be found in the code listings \ref{list:boundaryExtraction}. This very simple boundary extractor can be run with a variable threshold for hit detection. And works by first eroding anything that could be the inside of a shape by doing an erosion with a 3 * 3 structuring element with the origo in the center. This will erode any pixel tat is not surrounded by other accepted pixels but is accepted, or in other words the boundaries. If we then subtract this image from our original binary image of accepted values we are left with the pixels we eroded before or in other words the boundaries as seen in \ref{fig:}.
+
 
 \section{Surround Suppression}
 Surround suppression is a way of enhancing contours and region boundaries in images with texture. This works in combination with the Canny Edge Detection algorithm.
@@ -49,26 +58,30 @@ For an initial comparison, $\alpha$ = 2, K1 = 1 and K2 = 4 was used with Isotrop
 
 \section{Edge Detection images}
 \subsection{Simple Differentiation}
-\include{simple_differentiation}
+\input{simple_differentiation}
+
 
 \subsection{Roberts}
-\include{roberts}
+\input{roberts}
+
 
 \subsection{Sobel}
-\include{sobel}
+\input{sobel}
+
 
 \subsection{Prewitt}
-\include{prewitt}
+\input{prewitt}
+
 
 \section{Surround suppression images}
 \subsection{kanisza}
-\include{kanisza_a2}
-\include{kanisza_a4}
-\include{kanisza_a5}
+\input{kanisza_a2}
+\input{kanisza_a4}
+\input{kanisza_a5}
+
 
 \subsection{popout}
-\include{popout_a3}
-\include{popout_a4}
-
+\input{popout_a3}
+\input{popout_a4}
 
 \end{document}
