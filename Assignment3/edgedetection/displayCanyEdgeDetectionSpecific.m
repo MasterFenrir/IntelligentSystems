@@ -2,6 +2,7 @@ function [ ] = displayCanyEdgeDetectionSpecific( image, noiseLevel )
 %DISPLAYCANYEDGEDETECTIONSPECIFIC Summary of this function goes here
 %   Detailed explanation goes here
     figure('name',strcat(noiseLevel,'defaults'));
+    iptsetpref('ImshowBorder','tight');
     [ default, threshold ] = edge(image,'canny');
     imshow(default);
     

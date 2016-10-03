@@ -10,7 +10,10 @@ function [ ] = displayCannyEdgedetection( image )
 % the result. Discuss your results qualitatively, and indicate which settings at different noise levels you
 % think are best and why.
 
+
     %displayCanyEdgeDetectionSpecific(image);
+    displayCanyEdgeDetectionSpecific(image, 'no noise ');
+
 
      %mediumNoise = imnoise(image, 'gaussian', 0.0, 0.001);
      %displayCannyEdgeDetectionSpecific(mediumNoise, 'medium noise ');
