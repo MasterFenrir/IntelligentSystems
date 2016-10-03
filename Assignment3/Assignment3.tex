@@ -8,7 +8,6 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{float}
-\usepackage{morefloats}
 \lstset{showstringspaces=false,
 		breaklines=true,
 		postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow\space}}}
@@ -47,52 +46,43 @@ While all the results suffer from noise, the Simple Differentiation and the Robe
 For exercise 2.2 a simple boundary extractor was build as can be found in the code listings \ref{list:boundaryExtraction}. This very simple boundary extractor can be run with a variable threshold for hit detection. And works by first eroding anything that could be the inside of a shape by doing an erosion with a 3 * 3 structuring element with the origo in the center. This will erode any pixel tat is not surrounded by other accepted pixels but is accepted, or in other words the boundaries. If we then subtract this image from our original binary image of accepted values we are left with the pixels we eroded before or in other words the boundaries as seen in \ref{fig:}.
 
 \section{Canny Edge Detection}
+Exercise 2.3 asked us to analyse the impact of noise, more specifically Gaussian noise, on the Canny Edge Detection algorithm. We also consider the influence of some of the tuning variables for the algorithm, most importantly the sigma variable, further referred to as s, which is the standard deviation for the Gaussian blur filter. We will also take a  look at the influence of changing the threshold values for the acceptance of weak and strong edges. This variable will be referred to as t and it is represented as a factor of the weak edge threshold and the strong edge threshold respectively.
 
+It is expected that when the Gaussian noise is increased the edge detection algorithm will start to pick more false edges. It is also expected that increasing s and therefore also the size of the Gaussian filter will reduce the amount of false edges when the level of noise is increased, however probably at some cost to the amount of true edges being detected.
+
+Further expected is, that choosing a lower value for the weak edge threshold will increase the amount of weaker edges connected to strong edges that is detected, but increasing the amount of false positives as it gets lower as well, especially in an image with more Gaussian noise. 
+
+And lastly we expect that the lower the value chosen for the strong edge threshold the more edges we will find in general, however making this value to low should lead to many false positives for the edges especially in images with allot of noise.
 
 \section{Surround Suppression}
 Surround suppression is a way of enhancing contours and region boundaries in images with texture. This works in combination with the Canny Edge Detection algorithm.
 
 \subsection{kanizsa}
 The kanizsa image is a binary image, meaning that the usage of surround suppression will not impact the edge detection on this image greatly.
-For an initial comparison, $\alpha$ = 2, K1 = 1 and K2 = 4 was used with Isotropic (L-infinity, L1 and L2 norms) and Anisotropic. The $alpha$ was set at two as of the exercise suggestion, but was increased to 4 and then 5 to see the effect of an increasing $alpha$.
-
-\subsection{popout}
-This image is also a binary image, thus is suffers from the same lack of effectiveness as the kanizsa image.
-Again, for an initial comparison, $\alpha$ = 2, K1 = 1 and K2 = 4 was used with Isotropic (L-infinity, L1 and L2 norms) and Anisotropic. The $alpha$ was set at the suggested value, 3, but was increased to 4.
+For an initial comparison, $\alpha$ = 2, K1 = 1 and K2 = 4 was used with Isotropic (L-infinity, L1 and L2 norms) and Anisotropic.
 
 \section{Work done}
-The first exercise was done by both Wessel and Sander. The second and third were done by Wessel and the fourth was done by Sander.
-This document was written by both.
 
 \section{Edge Detection images}
 \subsection{Simple Differentiation}
-\input{simple_differentiation}
 
+\include{simple_differentiation}
 
 \subsection{Roberts}
-\input{roberts}
-
+\include{roberts}
 
 \subsection{Sobel}
-\input{sobel}
-
+\include{sobel}
 
 \subsection{Prewitt}
-\input{prewitt}
-
+\include{prewitt}
 
 \section{Canny Edge Detection images}
 \include{cany}
 
 \section{Surround suppression images}
-\subsection{kanisza}
-\input{kanisza_a2}
-\input{kanisza_a4}
-\input{kanisza_a5}
-
-
-\subsection{popout}
-\input{popout_a3}
-\input{popout_a4}
+\include{kanisza_a2}
+\include{kanisza_a4}
+\include{kanisza_a5}
 
 \end{document}
