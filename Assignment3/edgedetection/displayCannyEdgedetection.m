@@ -9,22 +9,13 @@ function [ ] = displayCannyEdgedetection( image )
 % the Canny edge detector performs as a function of added noise. Also test how parameter settings affect
 % the result. Discuss your results qualitatively, and indicate which settings at different noise levels you
 % think are best and why.
+
 %     displayCanyEdgeDetectionSpecific(image);
-    
-    mediumNoise = imnoise(image, 'gaussian', 0.0, 0.001);
-    displayCanyEdgeDetectionSpecific(mediumNoise, 'medium noise ');
+
+%     mediumNoise = imnoise(image, 'gaussian', 0.0, 0.001);
+%     displayCanyEdgeDetectionSpecific(mediumNoise, 'medium noise ');
     
 %     heavyNoise = imnoise(image, 'gaussian', 0.0, 0.005);
 %     displayCandEdgeDetectionSpecific(heavyNoise);    
-    
-%     mediumNoise = imnoise(image, 'gaussian', 0.0, 0.001);
-%     figure('name','medium noise defaults');
-%     default = edge(mediumNoise,'canny');
-%     imshow(default);
-%     
-%     heavyNoise = imnoise(image, 'gaussian', 0.0, 0.005);
-%     figure('name','heavy noise defaults');
-%     default = edge(heavyNoise,'canny');
-%     imshow(default);
 end
 
