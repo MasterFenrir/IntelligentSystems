@@ -38,94 +38,34 @@ The following code was created for edge detection and boundary detection.
 \section{Edge Detection}
 While all the results suffer from noise, the Simple Differentiation and the Roberts algorithm become nearly unrecognisable, while the others still show clear lines.
 
+\section{Surround Suppression}
+Surround suppression is a way of enhancing contours and region boundaries in images with texture. This works in combination with the Canny Edge Detection algorithm.
+
+\subsection{kanizsa}
+The kanizsa image is a binary image, meaning that the usage of surround suppression will not impact the edge detection on this image greatly.
+For an initial comparison, $\alpha$ = 2, K1 = 1 and K2 = 4 was used with Isotropic (L-infinity, L1 and L2 norms) and Anisotropic.
+
 \section{Work done}
 
 \section{Edge Detection images}
 \subsection{Simple Differentiation}
-\begin{figure}
-  \centering
-    \makebox[\textwidth]{\includegraphics{./edgedetection/images/sd_no_noise}} \\
-  \caption{Simple Differentiation, no noise}
-  \label{fig:sd_no_noise}
-\end{figure}
-
-\begin{figure}
-  \centering
-    \makebox[\textwidth]{\includegraphics{./edgedetection/images/sd_001_noise}} \\
-  \caption{Simple Differentiation, Gaussian noise with variance = 0.001}
-  \label{fig:sd_001}
-\end{figure}
-
-\begin{figure}
-  \centering
-    \makebox[\textwidth]{\includegraphics{./edgedetection/images/sd_005_noise}} \\
-  \caption{Simple Differentiation, Gaussian noise with variance = 0.005}
-  \label{fig:sd_005}
-\end{figure}
+\include{simple_differentiation}
 
 \subsection{Roberts}
-\begin{figure}
-  \centering
-    \makebox[\textwidth]{\includegraphics{./edgedetection/images/robert_no_noise}} \\
-  \caption{Roberts, no noise}
-  \label{fig:robert_no_noise}
-\end{figure}
-
-\begin{figure}
-  \centering
-    \makebox[\textwidth]{\includegraphics{./edgedetection/images/robert_001_noise}} \\
-  \caption{Roberts, Gaussian noise with variance = 0.001}
-  \label{fig:robert_001}
-\end{figure}
-
-\begin{figure}
-  \centering
-    \makebox[\textwidth]{\includegraphics{./edgedetection/images/robert_005_noise}} \\
-  \caption{Roberts, Gaussian noise with variance = 0.005}
-  \label{fig:robert_005}
-\end{figure}
+\include{roberts}
 
 \subsection{Sobel}
-\begin{figure}
-  \centering
-    \makebox[\textwidth]{\includegraphics{./edgedetection/images/sobel_no_noise}} \\
-  \caption{Sobel, no noise}
-  \label{fig:sobel_no_noise}
-\end{figure}
-
-\begin{figure}
-  \centering
-    \makebox[\textwidth]{\includegraphics{./edgedetection/images/sobel_001_noise}} \\
-  \caption{Sobel, Gaussian noise with variance = 0.001}
-  \label{fig:sobel_001}
-\end{figure}
-
-\begin{figure}
-  \centering
-    \makebox[\textwidth]{\includegraphics{./edgedetection/images/sobel_005_noise}} \\
-  \caption{Sobel, Gaussian noise with variance = 0.005}
-  \label{fig:sobel_005}
-\end{figure}
+\include{sobel}
 
 \subsection{Prewitt}
-\begin{figure}
-  \centering
-    \makebox[\textwidth]{\includegraphics{./edgedetection/images/prewitt_no_noise}} \\
-  \caption{Prewitt, no noise}
-  \label{fig:prewitt_no_noise}
-\end{figure}
+\include{prewitt}
 
-\begin{figure}
-  \centering
-    \makebox[\textwidth]{\includegraphics{./edgedetection/images/prewitt_001_noise}} \\
-  \caption{Prewitt, Gaussian noise with variance = 0.001}
-  \label{fig:prewitt_001}
-\end{figure}
+\section{Surround suppression images}
+\include{kanisza_a2}
+\include{kanisza_a4}
+\include{kanisza_a5}
 
-\begin{figure}
-  \centering
-    \makebox[\textwidth]{\includegraphics{./edgedetection/images/prewitt_005_noise}} \\
-  \caption{Prewitt, Gaussian noise with variance = 0.005}
-  \label{fig:prewitt_005}
-\end{figure}
+
+
+
 \end{document}
