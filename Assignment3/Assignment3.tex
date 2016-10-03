@@ -46,6 +46,8 @@ While all the results suffer from noise, the Simple Differentiation and the Robe
 \section{Boundary Extraction}
 For exercise 2.2 a simple boundary extractor was build as can be found in the code listings \ref{list:boundaryExtraction}. This very simple boundary extractor can be run with a variable threshold for hit detection. And works by first eroding anything that could be the inside of a shape by doing an erosion with a 3 * 3 structuring element with the origo in the center. This will erode any pixel tat is not surrounded by other accepted pixels but is accepted, or in other words the boundaries. If we then subtract this image from our original binary image of accepted values we are left with the pixels we eroded before or in other words the boundaries as seen in \ref{fig:}.
 
+\section{Canny Edge Detection}
+
 
 \section{Surround Suppression}
 Surround suppression is a way of enhancing contours and region boundaries in images with texture. This works in combination with the Canny Edge Detection algorithm.
@@ -78,6 +80,9 @@ This document was written by both.
 \subsection{Prewitt}
 \input{prewitt}
 
+
+\section{Canny Edge Detection images}
+\include{cany}
 
 \section{Surround suppression images}
 \subsection{kanisza}
