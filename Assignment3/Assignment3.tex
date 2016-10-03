@@ -8,6 +8,7 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{float}
+\usepackage{morefloats}
 \lstset{showstringspaces=false,
 		breaklines=true,
 		postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow\space}}}
@@ -59,24 +60,33 @@ For an initial comparison, $\alpha$ = 2, K1 = 1 and K2 = 4 was used with Isotrop
 
 \section{Edge Detection images}
 \subsection{Simple Differentiation}
+\input{simple_differentiation}
 
-\include{simple_differentiation}
 
 \subsection{Roberts}
-\include{roberts}
+\input{roberts}
+
 
 \subsection{Sobel}
-\include{sobel}
+\input{sobel}
+
 
 \subsection{Prewitt}
-\include{prewitt}
+\input{prewitt}
+
 
 \section{Canny Edge Detection images}
 \include{cany}
 
 \section{Surround suppression images}
-\include{kanisza_a2}
-\include{kanisza_a4}
-\include{kanisza_a5}
+\subsection{kanisza}
+\input{kanisza_a2}
+\input{kanisza_a4}
+\input{kanisza_a5}
+
+
+\subsection{popout}
+\input{popout_a3}
+\input{popout_a4}
 
 \end{document}
