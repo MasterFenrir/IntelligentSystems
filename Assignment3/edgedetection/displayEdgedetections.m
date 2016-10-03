@@ -1,23 +1,24 @@
-function [] = displayEdgedetections( chestImage, figureStart )
-%DISPLAYEDGEDETECTIONS Summary of this function goes here
-%   Detailed explanation goes here
+function [] = displayEdgedetections( chestImage )
+%DISPLAYEDGEDETECTIONS Display every kind of edge detection
 
 [sdResult] = simpleDifferentiation(chestImage);
 [robertResult] = robert(chestImage);
 [sobelResult] = sobel(chestImage);
 [prewittResult] = prewitt(chestImage);
 
-%figure(figureStart);
-%imshow(sdResult);
+iptsetpref('ImshowBorder','tight');
 
-%figure(figureStart + 1);
-%imshow(robertResult);
+figure('Name','Simple Differentiation');
+imshow(sdResult);
 
-figure(figureStart + 2);
+figure('Name','Robert');
+imshow(robertResult);
+
+figure('Name','Sobel');
 imshow(sobelResult);
 
-%figure(figureStart + 3);
-%imshow(prewittResult);
+figure('Name','Prewitt');
+imshow(prewittResult);
 
 end
 

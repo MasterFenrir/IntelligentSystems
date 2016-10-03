@@ -1,6 +1,5 @@
-function [ result, deltaX, deltaY ] = SimpleDifferentiation( image, borderSolution)
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+function [ result, deltaX, deltaY ] = simpleDifferentiation( image, borderSolution)
+%UNTITLED Simple Differentiation edge detection
 
     if(nargin < 2) 
         borderSolution = 'replicate';
@@ -11,6 +10,6 @@ function [ result, deltaX, deltaY ] = SimpleDifferentiation( image, borderSoluti
     deltaX = imfilter(image, deltaXMask, borderSolution, 'conv');
     deltaY = imfilter(image, deltaYMask, borderSolution, 'conv');
     
-    result = deltaX + deltaY;
+    result = sqrt(deltaX.^2 + deltaY.^2) * 2;
 end
 

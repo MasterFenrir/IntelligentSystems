@@ -1,15 +1,14 @@
 function [ result, imageSobelX, imageSobelY ] = sobel( imageMatrix, edgeOption )
-%SOBEL Summary of this function goes here
-%   Detailed explanation goes here
+%SOBEL Sobel edge detection
     if(nargin < 2) 
         edgeOption = 'replicate';
     end
-    sobelX = fspecial('sobel').';
-    sobelY = fspecial('sobel');
+    sobelX = fspecial('sobel');
+    sobelY = fspecial('sobel').';
     
     imageSobelX = imfilter(imageMatrix, sobelX, edgeOption, 'conv');
     imageSobelY = imfilter(imageMatrix, sobelY, edgeOption, 'conv');
     
-    result = imageSobelX + imageSobelY;
+    result = sqrt(imageSobelX.^2 + imageSobelY.^2);
 end
 
