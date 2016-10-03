@@ -1,5 +1,5 @@
-function [ output_args ] = displayCanyEdgedetection( input_args )
-%DISPLAYCANYEDGEDETECTION Summary of this function goes here
+function [ output_args ] = displayCannyEdgedetection( input_args )
+%DISPLAYCANNYEDGEDETECTION Summary of this function goes here
 %   Detailed explanation goes here
 
 %     MatLab also implements the Canny edge detector, implemented through the edge function:
