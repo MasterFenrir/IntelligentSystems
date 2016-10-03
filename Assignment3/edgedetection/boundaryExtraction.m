@@ -1,11 +1,11 @@
-function [ outImage ] = boundaryExtraction( imageMatrix, acceptanceValeu )
+function [ outImage ] = boundaryExtraction( imageMatrix, acceptanceValue )
 %EDGEEXTRACTION Summary of this function goes here
 %   Detailed explanation goes here
     if(nargin < 2)
-        acceptanceValeu = 0.5;
+        acceptanceValue = 0.5;
     end
     
-    binaryImage = imageMatrix > acceptanceValeu;
+    binaryImage = imageMatrix > acceptanceValue;
     
     structuringElement = [...
         1 1 1;...

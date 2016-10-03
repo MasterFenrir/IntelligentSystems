@@ -1,5 +1,5 @@
-function [ ] = displayCanyEdgedetection( image )
-%DISPLAYCANYEDGEDETECTION Summary of this function goes here
+function [ ] = displayCannyEdgedetection( image )
+%DISPLAYCANNYEDGEDETECTION Summary of this function goes here=
 %   Detailed explanation goes here
 
 %     MatLab also implements the Canny edge detector, implemented through the edge function:
