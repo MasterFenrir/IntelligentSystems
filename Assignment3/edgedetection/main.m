@@ -10,11 +10,11 @@
 % imdilate(<imageMatrix>,<stucturingElement>) for dilation
 % imeroder(<imageMatrix>,<stucturingElement>) for erotion
 
-
 chestImage = im2double(imread('chest.pgm'));
-im = edgeExtraction(chestImage, 0.45);
-figure('name', 'edge_extraction');
-imshow(im);
+
+displayBoundaryExtraction(chestImage);
+
+displayCanyEdgedetection(chestImage);
 
 displayEdgedetections(chestImage, 1);
 
