@@ -9,6 +9,7 @@
 % 
 % imdilate(<imageMatrix>,<stucturingElement>) for dilation
 % imeroder(<imageMatrix>,<stucturingElement>) for erotion
+
 chestImage = im2double(imread('chest.pgm'));
 displayEdgedetections(chestImage);
 
@@ -17,3 +18,8 @@ displayEdgedetections(chestImage);
 
 chestImage = imnoise(chestImage, 'gaussian', 0.0, 0.005);
 displayEdgedetections(chestImage);
+
+displayBoundaryExtraction(chestImage);
+
+displayCanyEdgedetection(chestImage);
+
