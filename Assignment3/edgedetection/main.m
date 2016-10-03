@@ -22,5 +22,5 @@ chestImage = im2double(imread('chest.pgm'));
 % 
 % displayBoundaryExtraction(chestImage);
 
-displayCanyEdgedetection(chestImage);
+displayCannyEdgedetection(chestImage);
 
