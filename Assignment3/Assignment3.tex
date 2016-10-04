@@ -32,18 +32,17 @@ The following code was created for edge detection and boundary detection.
 \subsection{prewitt.m}
 \lstinputlisting[language=Matlab]{./edgedetection/prewitt.m}
 
-%\subsection{cannyEdgedetection.m}
-%\lstinputlisting[language=Matlab]{./edgedetection/cannyEdgedetection.m}
-
 \subsection{boundaryExtraction.m}
 \lstinputlisting[language=Matlab]{./edgedetection/boundaryExtraction.m}\label{list:boundaryExtraction}
+
+\subsection{displayCannyEdgeDetectionSpecific.m}
+\lstinputlisting[language=Matlab]{./edgedetection/displayCannyEdgeDetectionSpecific.m}
 
 \section{Edge Detection}
 While all the results suffer from noise, the Simple Differentiation and the Roberts algorithm become nearly unrecognisable, while the others still show clear lines.
 
-
 \section{Boundary Extraction}
-For exercise 2.2 a simple boundary extractor was build as can be found in the code listings \ref{list:boundaryExtraction}. This very simple boundary extractor can be run with a variable threshold for hit detection. And works by first eroding anything that could be the inside of a shape by doing an erosion with a 3 * 3 structuring element with the origo in the center. This will erode any pixel that is not surrounded by other accepted pixels but is accepted, or in other words the boundaries. If we then subtract this image from our original binary image of accepted values we are left with the pixels we eroded before or in other words the boundaries as seen in \ref{fig:}.
+For exercise 2.2 a simple boundary extractor was build as can be found in the code listings \ref{list:boundaryExtraction}. This very simple boundary extractor can be run with a variable threshold for hit detection. And works by first eroding anything that could be the inside of a shape by doing an erosion with a 3 * 3 structuring element with the origo in the center. This will erode any pixel that is not surrounded by other accepted pixels but is accepted, or in other words the boundaries. If we then subtract this image from our original binary image of accepted values we are left with the pixels we eroded before or in other words the boundaries as seen in figure \ref{fig:boundary_extraction}.
 
 \section{Canny Edge Detection}
 Exercise 2.3 asked us to analyse the impact of noise, more specifically Gaussian noise, on the Canny Edge Detection algorithm. We also consider the influence of some of the tuning variables for the algorithm, most importantly the sigma variable, further referred to as s, which is the standard deviation for the Gaussian blur filter. We will also take a  look at the influence of changing the threshold values for the acceptance of weak and strong edges. This variable will be referred to as t and it is represented as a factor of the weak edge threshold and the strong edge threshold respectively.
@@ -52,7 +51,23 @@ It is expected that when the Gaussian noise is increased the edge detection algo
 
 Further expected is, that choosing a lower value for the weak edge threshold will increase the amount of weaker edges connected to strong edges that is detected, but increasing the amount of false positives as it gets lower as well, especially in an image with more Gaussian noise. 
 
-And lastly we expect that the lower the value chosen for the strong edge threshold the more edges we will find in general, however making this value to low should lead to many false positives for the edges especially in images with allot of noise.
+And lastly we expect that the lower the value chosen for the strong edge threshold the more edges we will find in general, however making this value to low should lead to many false positives for the edges especially in images with a lot of noise.
+
+\subsection{No noise}
+Figure \ref{fig:cany_no_noise_default} is the result of the Canny algorithm, with the chest image as input and the settings at default. When the smoothing is decreased (Figure \ref{fig:cany_no_noise_low_s}) the number of detected edges increases as a result of a less smooth image. When the smoothing is higher than the default (Figure \ref{fig:cany_no_noise_high_s}) there are less edges detected. Similar, predictable effects are obtained when changing the thresholds. 
+
+\subsection{Medium noise}
+A notable difference between the no noise images and medium noise images is the decreased number of lines found with less smoothing. Figure \ref{fig:cany_no_noise_default} and figure \ref{fig:m_noise_def} are produced using the same settings, but the latter has some noise but produces less edges. Same goes for figure \ref{fig:cany_no_noise_low_s} and \ref{fig:m_noise_l_sigma_sqr1}. This could be because of the noise interfering with the existing edges, which results in no longer meeting the weak or strong edge thresholds. The difference between figure \ref{fig:no_noise_t_00625_00781} (no noise) and figure \ref{fig:m_noise_sens_h_thres} (medium noise), where the latter shows a lot more edges due to the lowered threshold, seems to support this.
+
+Figures \ref{fig:m_noise_def} and \ref{fig:m_noise_h_sigma_sqr3} both have a close resemblance to the original figure \ref{fig:cany_no_noise_default}.
+
+\subsection{Heavy noise}
+All the images with heavy noise show more edges than the no noise and the medium images, as expected. Increased smoothing does indeed help with detecting less false positives, but it also fails to show some true edges (figure \ref{fig:h_noise_h_sigma_sqr3}). This image is the closest to the original.
+
+\subsection{Conclusion}
+The expected behavior as a consequence of changes in s and t did indeed happen.
+
+The differences between no noise, medium noise and heavy noise become increasingly difficult to fix as the noise level increases. Smoothing produces images that are more or less similar to the no noise image with default settings (figure \ref{fig:cany_no_noise_default}, but details are lost and the result is never quite te same. Nonetheless, the increased smoothing seems to be the most successful when noise levels increase. 
 
 \section{Surround Suppression}
 Surround suppression is a way of enhancing contours and region boundaries in images with texture. This works in combination with the Canny Edge Detection algorithm.
