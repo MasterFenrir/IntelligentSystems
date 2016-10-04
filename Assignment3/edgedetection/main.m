@@ -20,7 +20,7 @@ chestImage = im2double(imread('chest.pgm'));
 % chestImage = imnoise(chestImage, 'gaussian', 0.0, 0.005);
 % displayEdgedetections(chestImage);
 % 
-% displayBoundaryExtraction(chestImage);
+ displayBoundaryExtraction(chestImage);
 
-displayCannyEdgedetection(chestImage);
+%displayCannyEdgedetection(chestImage);
 
