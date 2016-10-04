@@ -35,15 +35,15 @@ The following code was created for edge detection and boundary detection.
 %\subsection{cannyEdgedetection.m}
 %\lstinputlisting[language=Matlab]{./edgedetection/cannyEdgedetection.m}
 
-\subsection{boundaryExtraction.m}\label{list:boundaryExtraction}
-\lstinputlisting[language=Matlab]{./edgedetection/boundaryExtraction.m}
+\subsection{boundaryExtraction.m}
+\lstinputlisting[language=Matlab]{./edgedetection/boundaryExtraction.m}\label{list:boundaryExtraction}
 
 \section{Edge Detection}
 While all the results suffer from noise, the Simple Differentiation and the Roberts algorithm become nearly unrecognisable, while the others still show clear lines.
 
 
 \section{Boundary Extraction}
-For exercise 2.2 a simple boundary extractor was build as can be found in the code listings \ref{list:boundaryExtraction}. This very simple boundary extractor can be run with a variable threshold for hit detection. And works by first eroding anything that could be the inside of a shape by doing an erosion with a 3 * 3 structuring element with the origo in the center. This will erode any pixel tat is not surrounded by other accepted pixels but is accepted, or in other words the boundaries. If we then subtract this image from our original binary image of accepted values we are left with the pixels we eroded before or in other words the boundaries as seen in \ref{fig:}.
+For exercise 2.2 a simple boundary extractor was build as can be found in the code listings \ref{list:boundaryExtraction}. This very simple boundary extractor can be run with a variable threshold for hit detection. And works by first eroding anything that could be the inside of a shape by doing an erosion with a 3 * 3 structuring element with the origo in the center. This will erode any pixel that is not surrounded by other accepted pixels but is accepted, or in other words the boundaries. If we then subtract this image from our original binary image of accepted values we are left with the pixels we eroded before or in other words the boundaries as seen in \ref{fig:}.
 
 \section{Canny Edge Detection}
 Exercise 2.3 asked us to analyse the impact of noise, more specifically Gaussian noise, on the Canny Edge Detection algorithm. We also consider the influence of some of the tuning variables for the algorithm, most importantly the sigma variable, further referred to as s, which is the standard deviation for the Gaussian blur filter. We will also take a  look at the influence of changing the threshold values for the acceptance of weak and strong edges. This variable will be referred to as t and it is represented as a factor of the weak edge threshold and the strong edge threshold respectively.
@@ -75,7 +75,16 @@ For an initial comparison, $\alpha$ = 2, K1 = 1 and K2 = 4 was used with Isotrop
 \include{sobel}
 
 \subsection{Prewitt}
-\include{prewitt}
+
+\input{prewitt}
+
+\section{Canny images}
+\subsection{No noise}
+\input{canny_no_noise}
+\subsection{Medium noise}
+\input{medium_noise}
+\subsection{Heavy noise}
+\input{heavy_noise}
 
 \section{Surround suppression images}
 \include{kanisza_a2}
