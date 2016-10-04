@@ -55,11 +55,17 @@ Further expected is, that choosing a lower value for the weak edge threshold wil
 And lastly we expect that the lower the value chosen for the strong edge threshold the more edges we will find in general, however making this value to low should lead to many false positives for the edges especially in images with allot of noise.
 
 \section{Surround Suppression}
-Surround suppression is a way of enhancing contours and region boundaries in images with texture. This works in combination with the Canny Edge Detection algorithm.
+Surround suppression is a way of enhancing contours and region boundaries in images with texture. This can be used in combination with other edge detection algorithms such as Canny Edge Detection. 
 
-\subsection{kanizsa}
-The kanizsa image is a binary image, meaning that the usage of surround suppression will not impact the edge detection on this image greatly.
-For an initial comparison, $\alpha$ = 2, K1 = 1 and K2 = 4 was used with Isotropic (L-infinity, L1 and L2 norms) and Anisotropic.
+There are two types of edge detection, namely isotropic and anisotropic. Isotropic surround suppression will suppress the gradient magnitude for pixels which already have many edge pixels nearby, weighting closer pixels more heavily then far away pixels. this will suppress edges inside of textures but not the textures boundaries even if the textured area has a chaotic pattern like sand, there will be a strong suppression. Isotropic Surround Suppression will, however not be able to strengthen edges between differently oriented textures.
+
+Anisotropic Surround Suppression will do something similar to Isotropic Surround Suppression, except that it will actually take into account the orientation of the gradient in the surroundings. Which makes it possible to find transitions between differently oriented textures, however the isotropic Surround Suppression will not mark the transition form a textured part of the image to a non textured part as strongly.
+
+We can clearly see some of these differences looking at the Kanisza and popout images after these forms of suppression have been applied to them. As an example we can see that the isotropic filtering will suppress edges that near many edges, while clearly leaving the edges of the area containing many edge, see \ref{fig:kanizsa_L2_a4_k11_k24}. When we look at the same image with anisotropic surround suppression \ref{fig:kanizsa_ANISO_a4_k11_k24} we see that the edges of this area are not as clearly defined but instead any area which has differently oriented edges has become very strongly expressed. Similar effect can be seen in the popout images, see \ref{fig:popout_LINF_a3_k11_k24} en onward, however not as clearly as with the Kanizsa image. It would have probably been more interesting if we had chosen to do the suppression on this image over a larger area by increasing the K1 and K2 variables. Which could have caused the anisotropic Surround Suppression to clearly indicate the edges of the center bar which has a different orientation.
+
+We can also clearly see the effect of the alpha variable on the strength of the suppression by examining for example the alpha = 2 and alpha = 5 images for isotropic Surround suppression, see \ref{fig:kanizsa_L1_a2_k11_k24} and \ref{fig:kanizsa_L1_a5_k11_k24}.
+
+
 
 \section{Work done}
 
