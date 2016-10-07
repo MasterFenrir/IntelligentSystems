@@ -1,6 +1,6 @@
 normdist = load('normdist(1).mat');
 
-%plotNormalDistribution(normdist.S1, normdist.S2, normdist.T);
+% plotNormalDistribution(normdist.S1, normdist.S2, normdist.T);
 res = mle(normdist.S1);
 mean1 = res(1);
 stddef1 = res(2);
