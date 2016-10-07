@@ -1,4 +1,4 @@
-function [  ] = plotNormalDistribution( S1, S2, T )
+function [  ] = plotScatter( S1, S2, T )
 %PLOTNORMALDISTRIBUTION Summary of this function goes here
 %   Detailed explanation goes here
 
