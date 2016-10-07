@@ -1,12 +1,12 @@
-function [ ] = plotposteriorprob( S1, S2, t )
+function [ ] = plotPosteriorProbability( S1, S2, t )
 %PLOTNOR Plot the normal distributions, combined with the scatter plots.
 
     res1 = mle(S1);
-    mean1 = res1(1)
-    stddef1 = res1(2)
+    mean1 = res1(1);
+    stddef1 = res1(2);
     res2 = mle(S2);
-    mean2 = res2(1)
-    stddef2 = res2(2)    
+    mean2 = res2(1);
+    stddef2 = res2(2);    
 
     iptsetpref('ImshowBorder','tight');
     figure(3);
