@@ -10,21 +10,22 @@
 \usepackage{float}
 \lstset{showstringspaces=false,
 		breaklines=true,
-		postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow\space}}}
-    	
+		postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow\space}}}			
+		
 \begin{document}
 \title{Intelligent Systems Assignment 4}
 \author{Wessel Becker (1982362) \& Sander ten Hoor (2318555)}
 \maketitle
 
+\newcommand{\simpefigure}[3]{
+	\begin{figure}[H]
+
+	\end{figure}
+}
+
 \section{}
 \subsection{}
-\begin{figure}[H]
-  \centering
-    \makebox[\textwidth]{\includegraphics[width=\textwidth]{./images/1_1}} \\
-  \caption{Histogram of height}
-  \label{fig:1_1}
-\end{figure}
+\simplefigure{./images/1_1}{Histogram of height}{fig:1_1}
 
 \subsection{}
 If the decision criteria is 170 cm with the assumption that everyone larger than 170 cm is male, there would be no men classified incorrectly. However, several women would be. Counting the bars representing women right of 170 cm gives us 29 incorrectly classified women.
@@ -35,12 +36,10 @@ If the decision criteria would be 178 cm, with everyone larger than 178 cm being
 
 \section{}
 \subsection{}
-\begin{figure}[H]
-  \centering
-    \makebox[\textwidth]{\includegraphics[width=\textwidth]{./images/2_1}} \\
-  \caption{Histogram of height}
-  \label{fig:1_1}
-\end{figure}
+\simplefigure{./images/2_1}{Body length vs hair length}{fig:2_1}
+
+\subsection{}
+\simplefigure{./images/2_2}{Stuff}{fig:2_2}
 
 \section{Matlab Code}
 

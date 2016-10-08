@@ -1,4 +1,4 @@
-function [  ] = plotLengthAgainstHair( body_length, hair_length )
+function [  ] = plotLengthAgainstHair( hair_length, body_length )
 %PLOTLENGTHAGAINSTHAIR Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -7,10 +7,13 @@ function [  ] = plotLengthAgainstHair( body_length, hair_length )
     hold off; box on; 
     axis square; hold on;
     
-    scatter(body_length, hair_length)
-    
+    scatter(hair_length, body_length)
     ylabel(['Length in cm'],'fontsize',16);
-    xlabel(['Hair length'],'fontsize',16);
-
+    xlabel(['Hair length in cm'],'fontsize',16);
+    
+    xl = xlim;
+    x = xl(1):xl(2);
+    y= 0.5*x + 163;
+    plot(x,y)
 end
 
