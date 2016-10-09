@@ -21,10 +21,17 @@ function [  ] = plotDHHistogram( personfiles )
         differentPersonsDist(i) = pdist2(iris1, iris2, 'hamming');
     end
     
-    [~ , bins] = hist( [samePersonDist(:),differentPersonsDist(:)], 20);
+    [~ , bins] = hist( [samePersonDist(:), differentPersonsDist(:)], 20);
     samePersonDistCounts = hist( samePersonDist , bins );
     differentPersonsDistCounts = hist( differentPersonsDist , bins );
     combinedCounts = [samePersonDistCounts.', differentPersonsDistCounts.'];
+    
+    res1 = mle(samePersonDist);
+    meanSamePerson = res1(1);
+    stddefSamePerson = res1(2);
+    res2 = mle(differentPersonsDist);
+    meanDifferentPerson = res2(1);
+    stddefDifferentPerson = res2(2); 
 
     iptsetpref('ImshowBorder','tight');
     figure('name', 'hamming distance');
@@ -36,6 +43,16 @@ function [  ] = plotDHHistogram( personfiles )
     xlabel(['hamming distance'],'fontsize',16);
     ylabel(['Number of iris pairs'],'fontsize',16);
     
+    yyaxis right
+    xl = xlim;
+    x = xl(1):0.005:xl(2);
+    gSSamePerson = normpdf(x, meanSamePerson, stddefSamePerson);
+    gSDifferentPerson = normpdf(x, meanDifferentPerson, stddefDifferentPerson);
+    plot(x,gSSamePerson, 'b');
+    plot(x,gSDifferentPerson, 'r');
+    
+    ylabel(['Probabillety densetity'],'fontsize',16);
+     
     legend('same person', 'different person');
 end
 
