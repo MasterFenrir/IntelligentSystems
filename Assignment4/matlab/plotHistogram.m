@@ -1,5 +1,5 @@
 function [  ] = plotHistogram( length_men, length_women )
-%PLOTHISTOGRAM Plot a histogram with a legend
+%PLOTHISTOGRAM Plot a histogram of length with a legend
 
     xMin = min(min([length_men, length_women])) - 1;
     xMax = max(max([length_men, length_women])) + 1;

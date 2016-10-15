@@ -1,6 +1,7 @@
-function [  ] = plotDHHistogram( personfiles )
-%PLOTDHHISTOGRAM Summary of this function goes here
-%   Detailed explanation goes here
+function [  ] = plotHDHistogram( personfiles )
+%PLOTDHHISTOGRAM Plot a histogram of the Hamming distances from
+% several iris comparisons. It also plots matching normal distributions
+
     rng(982374582,'twister');
     
     samePersonDist = zeros(1000, 1);
@@ -21,11 +22,6 @@ function [  ] = plotDHHistogram( personfiles )
         differentPersonsDist(i) = pdist2(iris1, iris2, 'hamming');
     end
     
-    [~ , bins] = hist( [samePersonDist(:), differentPersonsDist(:)], 20);
-    samePersonDistCounts = hist( samePersonDist , bins );
-    differentPersonsDistCounts = hist( differentPersonsDist , bins );
-    combinedCounts = [samePersonDistCounts.', differentPersonsDistCounts.'];
-    
     res1 = mle(samePersonDist);
     meanSamePerson = res1(1);
     stddefSamePerson = res1(2);
@@ -38,9 +34,11 @@ function [  ] = plotDHHistogram( personfiles )
     hold off; box on; 
     axis square; hold on;
 
-    bar(bins, combinedCounts); 
+    h2 = histogram(differentPersonsDist); 
+    h1 = histogram(samePersonDist); 
+    h1.BinWidth = h2.BinWidth;
     
-    xlabel(['hamming distance'],'fontsize',16);
+    xlabel(['Hamming distance'],'fontsize',16);
     ylabel(['Number of iris pairs'],'fontsize',16);
     
     yyaxis right
@@ -48,11 +46,11 @@ function [  ] = plotDHHistogram( personfiles )
     x = xl(1):0.005:xl(2);
     gSSamePerson = normpdf(x, meanSamePerson, stddefSamePerson);
     gSDifferentPerson = normpdf(x, meanDifferentPerson, stddefDifferentPerson);
-    plot(x,gSSamePerson, 'b');
-    plot(x,gSDifferentPerson, 'r');
+    plot(x,gSSamePerson, 'r');
+    plot(x,gSDifferentPerson, 'b');
     
-    ylabel(['Probabillety densetity'],'fontsize',16);
+    ylabel(['Probability density'],'fontsize',16);
      
-    legend('same person', 'different person');
+    legend('Different person', 'Same person');
 end
 

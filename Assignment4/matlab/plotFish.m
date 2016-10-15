@@ -1,6 +1,6 @@
 function [ ] = plotFish( fish )
-%PLOTFISH Summary of this function goes here
-%   Detailed explanation goes here
+%PLOTFISH Plot the Posterior Probability of the seabass and salmon,
+% based on the length of a given fish
     
     iptsetpref('ImshowBorder','tight');
     figure(2);
@@ -9,7 +9,8 @@ function [ ] = plotFish( fish )
     
     seabass = (fish.p_seabass * (3/4)) ./ ((fish.p_seabass * (3/4)) + (fish.p_salmon * (1/4)));
     salmon = 1 - seabass;
-    
+   
+
     plot(fish.l, seabass);
     plot(fish.l, salmon);
     ylabel(['Posterior probability'],'fontsize',16);

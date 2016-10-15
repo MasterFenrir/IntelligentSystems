@@ -8,10 +8,14 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{float}
+\usepackage[margin=1in]{geometry}
 \lstset{showstringspaces=false,
 		breaklines=true,
 		postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow\space}}}			
-		
+
+
+\renewcommand{\thesubsubsection}{\thesubsection.\alph{subsubsection}}
+
 \begin{document}
 \title{Intelligent Systems Assignment 4}
 \author{Wessel Becker (1982362) \& Sander ten Hoor (2318555)}
@@ -22,27 +26,29 @@
   	\centering
     	\makebox[\textwidth]
     	{
-    		\includegraphics[width=\textwidth]{#1}
+    		\includegraphics[width=.6\textwidth]{#1}
  		} \\
   		\caption{#2}
   		\label{#3}
 	\end{figure}
 }
+\newcommand{\mcode}[1]{
+	\lstinputlisting[language=Matlab]{#1}
+}
 
 \section{}
 \subsection{}
-\simplefigure{./images/1_1}{Histogram of height}{fig:1_1}
+\simplefigure{./images/1_1}{Histogram of height, created using \ref{a:plotHistogram}}{fig:1_1}
 
 \subsection{}
-If the decision criteria is 170 cm with the assumption that everyone larger than 170 cm is male, there would be no men classified incorrectly. However, several women would be. Counting the bars representing women right of 170 cm gives us 29 incorrectly classified women.
-(If 170 cm counts as men already, it is 29 + 6 = 35)
+If the decision criteria is 170 cm with the assumption that everyone larger than 170 cm is male, there would be no men classified incorrectly. However, several women would be. Counting the bars, which suffies in this small sample, representing women right of 170 cm gives us 29 incorrectly classified women.
 
 \subsection{}
 If the decision criteria would be 178 cm, with everyone larger than 178 cm being male, the least number of classification errors would occur according to these histograms. It results in 8 classification errors for women and 4 for men.
 
 \section{}
 \subsection{}
-\simplefigure{./images/2_1}{Body length vs hair length}{fig:2_1}
+\simplefigure{./images/2_1}{Body length vs hair length, created using \ref{a:plotLengthAgainstHair}}{fig:2_1}
 
 \subsection{}
 \simplefigure{./images/2_2}{The decision boundary}{fig:2_2}
@@ -50,12 +56,32 @@ In figure \ref{fig:2_2}, the decision boundary is drawn. This line was chosen be
 
 \section{}
 \subsection{}
-\simplefigure{./images/3_1}{Posterior probablity}{fig:3_1}
+\simplefigure{./images/3_1}{Posterior probablity, created using \ref{a:plotFish}}{fig:3_1}
 \subsection{}
 Both fishes, of 8 cm and 20 cm, would be classified as a seabass. However, the error chance would be higher for the fish of 8 cm, since the posterior probabilities are closer to each other than at 20 cm.
 
-\section{Matlab Code}
+\section{}
+\stepcounter{subsection}
+\subsection{}
+See Appendix \ref{a:plotHDHistogram}.
+\subsection{}
+\simplefigure{./images/4_3}{Histograms of the iris HD, created using \ref{a:plotHDHistogram}}{fig:4_3}
 
 \section{Work done}
+Exercise 1 and 2 were mostly done by Sander, exercise 3 was done together and 4 was mostly done by Wessel, with input from Sander.
+
+\appendix
+\section{Matlab code}
+\subsection{plotHistogram.m}\label{a:plotHistogram}
+\mcode{./matlab/plotHistogram.m}
+
+\subsection{plotLengthAgainstHair.m}\label{a:plotLengthAgainstHair}
+\mcode{./matlab/plotLengthAgainstHair.m}
+
+\subsection{plotFish.m}\label{a:plotFish}
+\mcode{./matlab/plotFish.m}
+
+\subsection{plotHDHistogram.m}\label{a:plotHDHistogram}
+\mcode{./matlab/plotHDHistogram.m}
 
 \end{document}
