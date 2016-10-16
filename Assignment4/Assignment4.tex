@@ -36,27 +36,25 @@
 	\lstinputlisting[language=Matlab]{#1}
 }
 
-\section{}
-\subsection{}
-\simplefigure{./images/1_1}{Histogram of height, created using \ref{a:plotHistogram}}{fig:1_1}
+\section{1D distrubitions}
+In this exercise we examined a dataset of male en female body lengths, the goal being to classify data points into either being of male or of female sex. In order to achieve this in this case we will simply examine the data visually and eyeball a good decision point.
 
-\subsection{}
-If the decision criteria is 170 cm with the assumption that everyone larger than 170 cm is male, there would be no men classified incorrectly. However, several women would be. Counting the bars, which suffies in this small sample, representing women right of 170 cm gives us 29 incorrectly classified women.
+\subsection{Data visualization}
+First of we will visualize the data, we do this by drawing a combined graph containing a histogram plot of both heights for women and man. This gives us a clear insight in the way that these heights are distributed as seen figure \ref{fig:1_1}. 
 
-\subsection{}
-If the decision criteria would be 178 cm, with everyone larger than 178 cm being male, the least number of classification errors would occur according to these histograms. It results in 8 classification errors for women and 4 for men.
+\subsection{Avoiding misclassification on of man}
+We then examine the way we could choose to decide whether a new data point is male or female. If we choose the decision criteria as 170 cm with the assumption that everyone larger than 170 cm is male, there would be no men classified incorrectly, for our existing data and if we assume the data to be normally distributed as the histograms seem to indicate, see figure \ref{fig:1_1}. the change of incorrectly assumed males would still stay very low. However, several women would be misclassified. Counting the bars, which suffices in this small sample, representing women right of 170 cm gives us 29 incorrectly classified women, see figure \ref{fig:1_1}, which is allot so unless we find it really important not to miss classify man we can probably do better.
 
-\section{}
-\subsection{}
-\simplefigure{./images/2_1}{Body length vs hair length, created using \ref{a:plotLengthAgainstHair}}{fig:2_1}
+\subsection{minimizing the overall number of miss classifications}
+In the case of classification humans by sex we probably want to minimize the overall number of miss classifications on both sides. If the decision criteria would be 178 cm, with everyone larger than 178 cm being male, the lowest number of classification errors would occur according to these histograms. It results in 8 classification errors for women and 4 for men, see figure \ref{fig:1_1}. Making for 12 miss classifications int total much better then the 29 with the previous criteria. It is possible to improve the results for new data points if we consider de way we expect them to be distributed.
 
+\section{2D distrubitions}
 \subsection{}
-\simplefigure{./images/2_2}{The decision boundary}{fig:2_2}
+\subsection{}
 In figure \ref{fig:2_2}, the decision boundary is drawn. This line was chosen because it divides the two obvious clusters, but leaves room for some outliers.
 
 \section{}
 \subsection{}
-\simplefigure{./images/3_1}{Posterior probablity, created using \ref{a:plotFish}}{fig:3_1}
 \subsection{}
 Both fishes, of 8 cm and 20 cm, would be classified as a seabass. However, the error chance would be higher for the fish of 8 cm, since the posterior probabilities are closer to each other than at 20 cm.
 
@@ -65,12 +63,25 @@ Both fishes, of 8 cm and 20 cm, would be classified as a seabass. However, the e
 \subsection{}
 See Appendix \ref{a:plotHDHistogram}.
 \subsection{}
-\simplefigure{./images/4_3}{Histograms of the iris HD, created using \ref{a:plotHDHistogram}}{fig:4_3}
 
 \section{Work done}
 Exercise 1 and 2 were mostly done by Sander, exercise 3 was done together and 4 was mostly done by Wessel, with input from Sander.
 
 \appendix
+\section{graphs}
+\subsection{Exercise 1 graphs}
+\simplefigure{./images/1_1}{Histogram of height, created using \ref{a:plotHistogram}}{fig:1_1}
+
+\subsection{Exercise 2 graphs}
+\simplefigure{./images/2_1}{Body length vs hair length, created using \ref{a:plotLengthAgainstHair}}{fig:2_1}
+\simplefigure{./images/2_2}{The decision boundary}{fig:2_2}
+
+\subsection{Exercise 3 graphs}
+\simplefigure{./images/3_1}{Posterior probablity, created using \ref{a:plotFish}}{fig:3_1}
+
+\subsection{Exercise 4 graphs}
+\simplefigure{./images/4_3}{Histograms of the iris HD, created using \ref{a:plotHDHistogram}}{fig:4_3}
+
 \section{Matlab code}
 \subsection{plotHistogram.m}\label{a:plotHistogram}
 \mcode{./matlab/plotHistogram.m}

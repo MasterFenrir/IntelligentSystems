@@ -52,5 +52,9 @@ function [  ] = plotHDHistogram( personfiles )
     ylabel(['Probability density'],'fontsize',16);
      
     legend('Different person', 'Same person');
+    
+    decisionBoundry = meanDifferentPerson + stddefDifferentPerson * sqrt(2) * erfinv(0.0005*2 - 1);
+    disp('The found decision boundary is: ');
+    disp(decisionBoundry);
 end
 
