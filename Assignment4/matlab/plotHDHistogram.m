@@ -1,33 +1,6 @@
-function [  ] = plotHDHistogram( personfiles )
+function [  ] = plotHDHistogram( samePersonDist, differentPersonsDist )
 %PLOTDHHISTOGRAM Plot a histogram of the Hamming distances from
 % several iris comparisons. It also plots matching normal distributions
-
-    rng(982374582,'twister');
-    
-    samePersonDist = zeros(1000, 1);
-    differentPersonsDist = zeros(1000, 1);
-    
-    for i = 1 : 1000 
-        personSame = load(personfiles{randi(20)});
-        chosenIrisis = randsample(20,2);
-        iris1 = personSame.iriscode(chosenIrisis(1), :);
-        iris2 = personSame.iriscode(chosenIrisis(2), :);
-        samePersonDist(i) = pdist2(iris1, iris2, 'hamming');
-        
-        chosenPersons = randsample(20,2);
-        personDifferent1 = load(personfiles{chosenPersons(1)});
-        personDifferent2 = load(personfiles{chosenPersons(2)});
-        iris1 = personDifferent1.iriscode(randi(20), :);
-        iris2 = personDifferent2.iriscode(randi(20), :);
-        differentPersonsDist(i) = pdist2(iris1, iris2, 'hamming');
-    end
-    
-    res1 = mle(samePersonDist);
-    meanSamePerson = res1(1);
-    stddefSamePerson = res1(2);
-    res2 = mle(differentPersonsDist);
-    meanDifferentPerson = res2(1);
-    stddefDifferentPerson = res2(2); 
 
     iptsetpref('ImshowBorder','tight');
     figure('name', 'hamming distance');
@@ -44,8 +17,8 @@ function [  ] = plotHDHistogram( personfiles )
     yyaxis right
     xl = xlim;
     x = xl(1):0.005:xl(2);
-    gSSamePerson = normpdf(x, meanSamePerson, stddefSamePerson);
-    gSDifferentPerson = normpdf(x, meanDifferentPerson, stddefDifferentPerson);
+    gSSamePerson = computeNormalDistribution(x, samePersonDist);
+    gSDifferentPerson = computeNormalDistribution(x, differentPersonsDist);
     plot(x,gSSamePerson, 'r');
     plot(x,gSDifferentPerson, 'b');
     
@@ -53,7 +26,7 @@ function [  ] = plotHDHistogram( personfiles )
      
     legend('Different person', 'Same person');
     
-    decisionBoundry = meanDifferentPerson + stddefDifferentPerson * sqrt(2) * erfinv(0.0005*2 - 1);
+    decisionBoundry = computeDecisionBoundary(differentPersonsDist);
     disp('The found decision boundary is: ');
     disp(decisionBoundry);
 end
