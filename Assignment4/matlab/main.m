@@ -10,4 +10,6 @@ for i = 1 : 20
 end
 [samePerson, differentPersons] = computeHammingDistance(personfiles);
 %plotHDHistogram(samePerson, differentPersons); 
-plotDifferentPersonsCDF(differentPersons);
+plotCDF(differentPersons, 0:0.005:1, computeDecisionBoundary(differentPersons));
+
+plotCDF(samePerson, -.1:0.005:.2, computeDecisionBoundary(differentPersons));
