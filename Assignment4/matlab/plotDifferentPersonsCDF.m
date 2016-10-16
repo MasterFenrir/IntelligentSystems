@@ -11,7 +11,7 @@ function [ ] = plotDifferentPersonsCDF( differentPersonsDist )
     figure('name', 'CDF');
     plot(x, y);
     hold on;
-    plot(computeDecisionBoundary(differentPersonsDist), 0.0005, 'rx');
+    plot(computeDecisionBoundary(differentPersonsDist), 0.0005, 'rx', 'MarkerSize', 50);
     
     xlabel(['Hamming distance'],'fontsize',16);
     ylabel(['Cumulative probability'],'fontsize',16);
