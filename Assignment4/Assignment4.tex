@@ -76,10 +76,20 @@ Taken a quick look at the data we can see that when we compare two data points f
 In order to to get an idea of the distribution of the difference between two scans of the same person and two scans of a different person. This is achieved by generating histograms for 1000 randomly chosen stets of scans belonging to the same person and 1000 randomly chosen sets of scans belonging to different persons.The code for selection these sets can be found in Appendix \ref{a:plotHDHistogram}. 
 
 \subsection{Visualization histograms}
-The histogram can be found in figure \ref{fig:4 1}.
+In order to visualize the distribution of theses distances a graph can be made containing two histograms corresponding to the different and same person distance sets. The histograms can be found in figure \ref{fig:4_1}.
 
 \subsection{Visualization probability density functions}
-When we look at histograms we created in figure \ref{fig:4 1} we notice that this data is looks pretty clearly normally distibuted. 
+When we look at histograms we created in figure \ref{fig:4_1} we notice that this data is looks pretty clearly normally distributed. Using this assumption we can now also plot the normal distributions corresponding to the two sets of distances. Doing so gives the graph in figure \ref{fig:4_2}. 
+
+\subsection{Making a decision}
+The final step we need to take is to decide on some decision criteria based on which some set of input data is accepted as authentic. In this case there is no interest in the posterior probability, since we assume the system to be attacked by a malafide entity anyway, making the prior probability of a different person versus a same person using the system irrelevant. It is however the goal to ensure by some level of certainty that a malfide attempt to authenticate fails. 
+
+In other words if our null hypothesis is that two measurements belong to different persons and our alternative hypothesis is that two measurements belong to the same person than we want to minimize the type 2 error, the incorrect rejection of the null hypothesis. 
+
+We choose therefore a very small alpha of 0.0005, we can then compute the distance value for which this value of alpha is achieved. the alpha value being given by the cumulative distribution for different person. We can find value x for which p(x) is alpha by computing F'(x) using the erfinv function in matlab. This gives us a x value of 0.2089. If a value we find is lower or equal to this value we can assume the alternative hypothesis to be true with a very reasonable amount of doubt.
+
+We can now also compute the type 2 error by inputting the resulting value x into the cdf of the same persons dataset, giving us ... . A more visual representation of the two computations we did to obtain x and the type 2 error can be seen in figure \ref{fig:4_3}
+
 \section{Work done}
 The programming for exercise 1, 2 and 3 were done by Sander. Wessel did the programming for exercise 4. The text was written as a combined effort, with Wessel having written more than Sander.
 
@@ -96,12 +106,12 @@ The programming for exercise 1, 2 and 3 were done by Sander. Wessel did the prog
 \simplefigure{./images/3_1}{Posterior probablity, created using \ref{a:plotFish}}{fig:3_1}
 
 \subsection{Exercise 4 graphs}
-\simplefigure{./images/4_3_hist_only}{Histograms of the iris HD created using \ref{a:plotHDHistogram}}{fig:4_3_hist_only}
+\simplefigure{./images/4_3_hist_only}{Histograms of the iris HD created using \ref{a:plotHDHistogram}}{fig:4_1}
 
-\simplefigure{./images/4_3}{Histograms of the iris HD, combined with their matching Normal Distributions}{fig:4_3}
+\simplefigure{./images/4_3}{Histograms of the iris HD, combined with their matching Normal Distributions}{fig:4_2}
 
 \simplefigure{./images/4_4}
-{Cumulative Distribution Function displaying the cumulative chance of misclassification. Made using \ref{a:plotCDF}}{fig:4_4}
+{Cumulative Distribution Function displaying the cumulative chance of misclassification. Made using \ref{a:plotCDF}}{fig:4_3}
 
 \section{Matlab code}
 \subsection{plotHistogram.m}\label{a:plotHistogram}
