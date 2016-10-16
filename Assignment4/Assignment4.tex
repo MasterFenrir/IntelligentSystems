@@ -88,7 +88,7 @@ In other words if our null hypothesis is that two measurements belong to differe
 
 We choose therefore a very small alpha of 0.0005, we can then compute the distance value for which this value of alpha is achieved. the alpha value being given by the cumulative distribution for different person. We can find value x for which p(x) is alpha by computing F'(x) using the erfinv function in matlab. This gives us a x value of 0.2089. If a value we find is lower or equal to this value we can assume the alternative hypothesis to be true with a very reasonable amount of doubt.
 
-We can now also compute the type 2 error by inputting the resulting value x into the cdf of the same persons dataset, giving us ... . A more visual representation of the two computations we did to obtain x and the type 2 error can be seen in figure \ref{fig:4_3}
+We can now also compute the type 2 error by inputting the resulting value x into the cdf of the same persons dataset, giving us 0.00085 for the type 2 error rate. A more visual representation of the two computations we did to obtain x and the type 2 error can be seen in figure \ref{fig:4_3}
 
 \section{Work done}
 The programming for exercise 1, 2 and 3 were done by Sander. Wessel did the programming for exercise 4. The text was written as a combined effort, with Wessel having written more than Sander.
