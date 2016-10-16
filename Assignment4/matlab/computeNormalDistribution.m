@@ -3,9 +3,9 @@ function [ nd ] = computeNormalDistribution( x, data )
 %data for a data range x
     
     res = mle(data);
-    mean = res(1);
+    mn = res(1);
     stddef = res(2);
-    nd = normpdf(x, mean, stddef);
+    nd = normpdf(x, mn, stddef);
     
 end
 

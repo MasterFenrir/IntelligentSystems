@@ -9,4 +9,5 @@ for i = 1 : 20
 	personfiles{i} = strcat('data/person', num2str(i, '%02u'), '.mat');
 end
 [samePerson, differentPersons] = computeHammingDistance(personfiles);
-plotHDHistogram(samePerson, differentPersons); 
+%plotHDHistogram(samePerson, differentPersons); 
+plotDifferentPersonsCDF(differentPersons);

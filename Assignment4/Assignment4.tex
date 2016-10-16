@@ -73,7 +73,7 @@ See Appendix \ref{a:plotHDHistogram}.
 \subsection{}
 
 \section{Work done}
-Exercise 1 and 2 were mostly done by Sander, exercise 3 was done together and 4 was mostly done by Wessel, with input from Sander.
+The programming for exercise 1, 2 and 3 were done by Sander. Wessel did the programming for exercise 4. The text was written as a combined effort, with Wessel having written more than Sander.
 
 \appendix
 \section{graphs}
@@ -88,7 +88,12 @@ Exercise 1 and 2 were mostly done by Sander, exercise 3 was done together and 4 
 \simplefigure{./images/3_1}{Posterior probablity, created using \ref{a:plotFish}}{fig:3_1}
 
 \subsection{Exercise 4 graphs}
-\simplefigure{./images/4_3}{Histograms of the iris HD, created using \ref{a:plotHDHistogram}}{fig:4_3}
+\simplefigure{./images/4_3_hist_only}{Histograms of the iris HD created using \ref{a:plotHDHistogram}}{fig:4_3_hist_only}
+
+\simplefigure{./images/4_3}{Histograms of the iris HD, combined with their matching Normal Distributions}{fig:4_3}
+
+\simplefigure{./images/4_4}
+{Cumulative Distribution Function displaying the cumulative chance of misclassification. Made using \ref{a:plotCDF}}{fig:4_4}
 
 \section{Matlab code}
 \subsection{plotHistogram.m}\label{a:plotHistogram}
@@ -100,7 +105,19 @@ Exercise 1 and 2 were mostly done by Sander, exercise 3 was done together and 4 
 \subsection{plotFish.m}\label{a:plotFish}
 \mcode{./matlab/plotFish.m}
 
+\subsection{computeNormalDistribution.m}\label{a:computeND}
+\mcode{./matlab/computeNormalDistribution.m}
+
+\subsection{computeHammingDistance.m}\label{a:computeHD}
+\mcode{./matlab/computeHammingDistance.m}
+
+\subsection{computeDecisionBoundary.m}\label{a:computeDB}
+\mcode{./matlab/computeDecisionBoundary.m}
+
 \subsection{plotHDHistogram.m}\label{a:plotHDHistogram}
 \mcode{./matlab/plotHDHistogram.m}
+
+\subsection{plotDifferentPersonsCDF.m}\label{a:plotCDF}
+\mcode{./matlab/plotDifferentPersonsCDF.m}
 
 \end{document}
