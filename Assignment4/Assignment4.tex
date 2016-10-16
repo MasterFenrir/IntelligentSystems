@@ -57,10 +57,14 @@ In order to get clear visualization of the data which which we are working we ma
 \subsection{Decision boundary}
 In order to determine a decision boundary in this scenario we can also give the fact stated in the exercise that in general men have shorter hair and are taller then women. we also know that we have the same number of male and female data points, neatly coinciding with our two clusters. In order to make as little miss qualifications as possible and with the spread of both cluster being similar. We can then eyeball the line as seen in figure \ref{fig:2_2}. This line was chosen because it divides the two obvious clusters, being as far away from the centres of both clusters as possible. Th line is drawn far away from the cluster centres because this is where the density of data from a certain class is expected to be the highest by keeping the line as far away from these centres we minimize the amount of outlying data points that we miss classify.
 
-\section{}
-\subsection{}
-\subsection{}
-Both fishes, of 8 cm and 20 cm, would be classified as a seabass. However, the error chance would be higher for the fish of 8 cm, since the posterior probabilities are closer to each other than at 20 cm.
+\section{Bayes decision rule}
+In this exercise we try to determine whether a fish is a sea bass or a salmon. In order to do this we are given the class conditional probability densities for both of these classes of fish. Ass well as the prior probabilities for finding seabass or salmon.
+
+\subsection{Visualisation of posterior probabilities}
+In order to get a better insight in the changes of a fish being of a certain class. It is necessary to know the changes of it being of a certain class conditional a given length or in other words we calculate the posterior probabilities. We then plot these in a graph so that we can estimate the changes of a new fish being of a certain class by eye balling this graph, see figure \ref{fig:3_1}.
+
+\subsection{Making decisions}
+Since we now have a way to see the changes of a new fish of a certain size belonging to either of these two classes. One thing is still needed, this is a rule by which we decide in which of the two classes a fish belongs. For this we will uses Bayes decision rule which comes down to us always choosing the class which has the highest posterior probability. Using this rule both fishes, of 8 cm and 20 cm, would be classified as a seabass, since for these given lengths seabass has the highest posterior probability. However, the expected error is higher for the fish of 8 cm, since the posterior probabilities are closer to each other than at 20 cm. It is also evident now when we look at figure \ref{fig:3_1} that there will be a single decision boundary somewhere around 22 cm after which it becomes more likely that a new found specimen of that fish is a salmon.
 
 \section{}
 \stepcounter{subsection}
