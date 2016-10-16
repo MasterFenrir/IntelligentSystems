@@ -48,10 +48,14 @@ We then examine the way we could choose to decide whether a new data point is ma
 \subsection{minimizing the overall number of miss classifications}
 In the case of classification humans by sex we probably want to minimize the overall number of miss classifications on both sides. If the decision criteria would be 178 cm, with everyone larger than 178 cm being male, the lowest number of classification errors would occur according to these histograms. It results in 8 classification errors for women and 4 for men, see figure \ref{fig:1_1}. Making for 12 miss classifications int total much better then the 29 with the previous criteria. It is possible to improve the results for new data points if we consider de way we expect them to be distributed.
 
-\section{2D distrubitions}
-\subsection{}
-\subsection{}
-In figure \ref{fig:2_2}, the decision boundary is drawn. This line was chosen because it divides the two obvious clusters, but leaves room for some outliers.
+\section{2D distributions}
+In this exercise a dataset of body heights and hair length's is examined width the goal of finding a classification boundary to classify the dataset into male and female sexes. This is done via visualization.
+
+\subsection{visualization}
+In order to get clear visualization of the data which which we are working we make a scatter plot of the data points. In this scatter plot we can clearly see two distinct clusters, see figure \ref{fig:2_1}, which can be assumed to belong to the male and female sex classes.
+
+\subsection{Decision boundary}
+In order to determine a decision boundary in this scenario we can also give the fact stated in the exercise that in general men have shorter hair and are taller then women. we also know that we have the same number of male and female data points, neatly coinciding with our two clusters. In order to make as little miss qualifications as possible and with the spread of both cluster being similar. We can then eyeball the line as seen in figure \ref{fig:2_2}. This line was chosen because it divides the two obvious clusters, being as far away from the centres of both clusters as possible. Th line is drawn far away from the cluster centres because this is where the density of data from a certain class is expected to be the highest by keeping the line as far away from these centres we minimize the amount of outlying data points that we miss classify.
 
 \section{}
 \subsection{}
