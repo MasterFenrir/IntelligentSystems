@@ -1,11 +1,11 @@
-length = load('data/lab1_1.mat');
-hair = load('data/lab1_2.mat');
-fish = load('data/lab1_3.mat');
-%plotHistogram(length.length_men, length.length_women);
-%plotLengthAgainstHair(hair.measurements(:, 2), hair.measurements(:, 1)); 
-%plotFish(fish);
-personfiles = cell(20, 1);
-for i = 1 : 20
-	personfiles{i} = strcat('data/person', num2str(i, '%02u'), '.mat');
-end
-plotHDHistogram(personfiles);
+l = load('data/w5_1.mat');
+load('data/w6_1x.mat');
+load('data/w6_1y.mat');
+load('data/w6_1z.mat');
+x = w6_1x;
+y = w6_1y;
+z = w6_1z;
+
+[means, mask] = simpleKMeans(x, 2);
+
+plotKMeans(means, mask, x);
