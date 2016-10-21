@@ -1,0 +1,41 @@
+\documentclass[10pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
+\usepackage[margin=1in]{geometry}
+\lstset{showstringspaces=false,
+		breaklines=true,
+		postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow\space}}}			
+
+
+\renewcommand{\thesubsubsection}{\thesubsection.\alph{subsubsection}}
+
+\begin{document}
+\title{Intelligent Systems Assignment 5}
+\author{Wessel Becker (1982362) \& Sander ten Hoor (2318555)}
+\maketitle
+
+\newcommand{\simplefigure}[3]{
+	\begin{figure}[H]
+  	\centering
+    	\makebox[\textwidth]
+    	{
+    		\includegraphics[width=.6\textwidth]{#1}
+ 		} \\
+  		\caption{#2}
+  		\label{#3}
+	\end{figure}
+}
+\newcommand{\mcode}[1]{
+	\lstinputlisting[language=Matlab]{#1}
+}
+
+
+
+\end{document}
