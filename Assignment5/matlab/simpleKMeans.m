@@ -1,5 +1,5 @@
 function [ prototypes, clusters] = simpleKMeans( data, k )
-%UNTITLED Compute the K means
+%SIMPLEKMEANS Compute the K means
 
     prototypes = datasample(data, k, 'replace', false);
     dists = pdist2(data, prototypes);

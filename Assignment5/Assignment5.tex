@@ -39,7 +39,25 @@
 \section{K-means}
 \section{Decision tree}
 \section{K-nearest neighbours}
+\subsection{K-nearest neighbours implementation}
+The implementation is available in \ref{ap:knn}
 
+\subsection{Classification for different values of K} \label{ss:class}
+\ref{ap:knn_img} contains the resulting images. When K = 1, the two groups of points, the green circles and the red crosses, have their own well-defined territory. As values of K increase, more members of a class seem to be in an area which would be classified as the other. This makes sense, as more matches are necessary to come to a satisfactory conclusion. In an area mostly populated by green circles, a new point taking the five closest distances is very likely to end up with more green circles as nearest points than red crosses.
+
+\subsection{Contending Classes}
+With the increased number of classes (2 to 4), the effect described in \ref{ss:class} persists, as would be expected.
+
+In case of multiple contending classes, a choice needs to be made. There are four simple options for this:
+\begin{itemize}
+\item Lowest/Highest class number
+\item A random class
+\item Class with the closest point
+\item Class with the lowest average distance
+\end{itemize}
+
+The first option is rather arbitrary and would prioritize specific classes with no other reason than their number. Choosing a random class gets rid of the arbitrary prioritization, but offers no real basis as to why that class was chosen.
+Selecting the class with the closest point gives an argument to support the selection of that specific class, but that distance could be a possible outlier, since it is just one. To take everything into account, selecting the class with the lowest average distance gives the most reliable result.
 
 \appendix
 \section{figures}
@@ -56,13 +74,24 @@
 \simplefigure{./matlab/img/z28}{uniform data K=8}{fig:z28}
 
 \subsection{Decision tree}
-\subsection{K-nearest neighbours}git 
+\subsection{K-nearest neighbours}\label{ap:knn_img}
+\subsubsection{Number of classes = 2}
+\simplefigure{./matlab/img/3_1_2.png}{K = 1, Nr of classes = 2}{fig:3_1_2}
+\simplefigure{./matlab/img/3_3_2.png}{K = 3, Nr of classes = 2}{fig:3_1_2}
+\simplefigure{./matlab/img/3_5_2.png}{K = 5, Nr of classes = 2}{fig:3_1_2}
+\simplefigure{./matlab/img/3_7_2.png}{K = 7, Nr of classes = 2}{fig:3_1_2}
+
+\subsubsection{Number of classes = 4}
+\simplefigure{./matlab/img/3_1_4.png}{K = 1, Nr of classes = 4}{fig:3_1_4}
+\simplefigure{./matlab/img/3_3_4.png}{K = 3, Nr of classes = 4}{fig:3_1_4}
+\simplefigure{./matlab/img/3_5_4.png}{K = 5, Nr of classes = 4}{fig:3_1_4}
+\simplefigure{./matlab/img/3_7_4.png}{K = 7, Nr of classes = 4}{fig:3_1_4}
 
 \section{code}
 \subsection{k-means}
 \mcode{./matlab/simpleKMeans.m}
 \mcode{./matlab/plotKMeans.m}
-\subsection{K-nearest neighbours}
+\subsection{K-nearest neighbours}\label{ap:knn}
 \mcode{./matlab/KNN.m}
 \mcode{./matlab/simpleFrequencies.m}
 
