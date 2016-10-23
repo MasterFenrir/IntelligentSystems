@@ -1,4 +1,4 @@
-function [  ] = plotKMeans( means, clusterMask, data )
+function [  ] = plotKMeans( means, clusters )
 %PLOTKMEANS Summary of this function goes here
 %   Detailed explanation goes here
     colours = {'k', 'm', 'b', 'r', 'g', [0, 0.9, 0.9] , [0.67, 0.45, 0.22], [1, 0.55 0.1]};
@@ -8,7 +8,7 @@ function [  ] = plotKMeans( means, clusterMask, data )
     axis square; hold on;
     
     for i = 1:length(means)
-        cluster = data(clusterMask == i, :);
+        cluster = clusters{i};
         s1 = scatter(cluster(:, 1), cluster(:, 2), 30, '.' );
         s2 = scatter(means(i, 1), means(i, 2), 150, 'filled', 'p');
         s1.MarkerEdgeColor = colours{i};

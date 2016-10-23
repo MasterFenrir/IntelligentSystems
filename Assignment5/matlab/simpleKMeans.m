@@ -1,4 +1,4 @@
-function [ prototypes, mask ] = simpleKMeans( data, k )
+function [ prototypes, clusters] = simpleKMeans( data, k )
 %UNTITLED Summary of this function goes here
 %   Detailed explanation goes here
     prototypes = datasample(data, k, 'replace', false);
@@ -16,5 +16,9 @@ function [ prototypes, mask ] = simpleKMeans( data, k )
     end
     
     [~, mask] = min(dists, [], 2);
+    clusters = cell(k);
+    for i = 1:k
+        clusters{i} = data(mask == i, :);
+    end
 end
 

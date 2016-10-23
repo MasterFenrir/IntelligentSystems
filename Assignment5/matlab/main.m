@@ -8,4 +8,4 @@ z = w6_1z;
 
 [means, mask] = simpleKMeans(z, 8);
 
-plotKMeans(means, mask, z);
+plotKMeans(means, mask);
