@@ -1,6 +1,6 @@
 function [  ] = plotKMeans( means, clusters, name )
-%PLOTKMEANS Summary of this function goes here
-%   Detailed explanation goes here
+%PLOTKMEANS Plot the K means
+
     colours = {'k', 'm', 'b', 'r', 'g', [0, 0.9, 0.9] , [0.67, 0.45, 0.22], [1, 0.55 0.1]};
     k = length(means);
     fullName = strcat('img/', name, num2str(k));
