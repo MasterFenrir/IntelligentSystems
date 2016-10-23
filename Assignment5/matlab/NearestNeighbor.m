@@ -1,5 +1,5 @@
 clear all;
-load w5_1.mat;
+load data/w5_1.mat;
 
 K=1;
 N=64;

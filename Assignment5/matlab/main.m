@@ -6,6 +6,6 @@ x = w6_1x;
 y = w6_1y;
 z = w6_1z;
 
-[means, mask] = simpleKMeans(z, 8);
+%[means, mask] = simpleKMeans(z, 8);
 
-plotKMeans(means, mask, 'z2');
+%plotKMeans(means, mask, 'z2');
