@@ -42,15 +42,53 @@
 
 \appendix
 \section{figures}
-\subsection{k-means}
-\simplefigure{./images/x}
-{}{fig:x2}
+
+\subsection{k-means}\begin{figure}[H]
+\centering
+
+  \begin{subfigure}{.7\textwidth}
+    \centering
+    \includegraphics[width=.9\textwidth]{./canny/kanizsa_L1_a2_k11_k24}
+    \caption{kanizsa, Isotropic L1 norm. $\alpha$ = 2, K1 = 1, K2 = 4}
+    \label{fig:kanizsa_L1_a2_k11_k24}
+  \end{subfigure}%
+  
+  \begin{subfigure}{.7\textwidth}
+    \centering
+    \includegraphics[width=.9\textwidth]{./canny/kanizsa_L2_a2_k11_k24}
+    \caption{kanizsa, Isotropic L2 norm. $\alpha$ = 2, K1 = 1, K2 = 4}
+    \label{fig:kanizsa_L2_a2_k11_k24}
+  \end{subfigure}\\%
+ \end{figure}
+
+\begin{figure}[H]
+\centering 
+  \begin{subfigure}{.7\textwidth}
+    \centering
+    \includegraphics[width=.9\textwidth]{./canny/kanizsa_ANISO_a2_k11_k24}
+    \caption{kanizsa, Anisotropic. $\alpha$ = 2, K1 = 1, K2 = 4}
+    \label{fig:kanizsa_ANISO_a2_k11_k24}
+  \end{subfigure}%
+  
+\end{figure}
+
+\simplefigure{./matlab/img/x2}{2 clusters K=2}{fig:x2}
+\simplefigure{./matlab/img/x4}{2 clusters K=4}{fig:x4}
+\simplefigure{./matlab/img/x8}{2 clusters K=8}{fig:x8}
+\simplefigure{./matlab/img/y2}{1 long cluster K=2}{fig:y2}
+\simplefigure{./matlab/img/y4}{1 long cluster K=4}{fig:y4}
+\simplefigure{./matlab/img/y8}{1 long cluster K=8}{fig:y8}
+\simplefigure{./matlab/img/z2}{uniform data K=2}{fig:z12}
+\simplefigure{./matlab/img/z22}{uniform data K=2}{fig:z22}
+\simplefigure{./matlab/img/z4}{uniform data K=4}{fig:z4}
+\simplefigure{./matlab/img/z8}{uniform data K=8}{fig:z18}
+\simplefigure{./matlab/img/z28}{uniform data K=8}{fig:z28}
 \subsection{Decision tree}
 \subsection{K-nearest neighbours}
 
 \section{code}
 \subsection{k-means}
-\mcode{./matlab/simleKMeans.m}
+\mcode{./matlab/simpleKMeans.m}
 \mcode{./matlab/plotKMeans.m}
 \subsection{K-nearest neighbours}
 \mcode{./matlab/KNN.m}
