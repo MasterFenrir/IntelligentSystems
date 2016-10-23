@@ -1,6 +1,7 @@
 function [ class ] = KNN( point, k, data, nrofclasses )
-%KNN Summary of this function goes here
-%   Detailed explanation goes here
+%KNN Compute the K nearest neighbour for classification.
+% If there are multiple possible classes, the class with the
+% smallest average distance is chosen.
 
     [dists, indices] = pdist2(data, point, 'Euclidean', 'Smallest', k);
     [rows, ~] = size(data);
