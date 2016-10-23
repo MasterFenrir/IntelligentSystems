@@ -5,9 +5,8 @@
 \usepackage{amssymb}
 \usepackage{listings}
 \usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
 \usepackage{float}
+\usepackage{caption}
 \usepackage[margin=1in]{geometry}
 \lstset{showstringspaces=false,
 		breaklines=true,
@@ -21,12 +20,20 @@
 \author{Wessel Becker (1982362) \& Sander ten Hoor (2318555)}
 \maketitle
 
+\newcommand{\simplesubfigure}[3]{
+  \noindent\begin{minipage}{.5\linewidth}
+    \centering
+    \includegraphics[width=.5\linewidth]{#1}
+    \captionof{figure}{#2}
+    \label{#3}
+  \end{minipage}%
+}
 \newcommand{\simplefigure}[3]{
 	\begin{figure}[H]
   	\centering
     	\makebox[\textwidth]
     	{
-    		\includegraphics[width=.6\textwidth]{#1}
+    		\includegraphics[width=1\textwidth]{#1}
  		} \\
   		\caption{#2}
   		\label{#3}
@@ -43,20 +50,21 @@
 
 \appendix
 \section{figures}
-\simplefigure{./matlab/img/x2}{2 clusters K=2}{fig:x2}
-\simplefigure{./matlab/img/x4}{2 clusters K=4}{fig:x4}
-\simplefigure{./matlab/img/x8}{2 clusters K=8}{fig:x8}
-\simplefigure{./matlab/img/y2}{1 long cluster K=2}{fig:y2}
-\simplefigure{./matlab/img/y4}{1 long cluster K=4}{fig:y4}
-\simplefigure{./matlab/img/y8}{1 long cluster K=8}{fig:y8}
-\simplefigure{./matlab/img/z2}{uniform data K=2}{fig:z12}
-\simplefigure{./matlab/img/z22}{uniform data K=2}{fig:z22}
-\simplefigure{./matlab/img/z4}{uniform data K=4}{fig:z4}
-\simplefigure{./matlab/img/z8}{uniform data K=8}{fig:z18}
-\simplefigure{./matlab/img/z28}{uniform data K=8}{fig:z28}
-
+\subsection{K-means}
+  \simplesubfigure{./matlab/img/x2}{2 clusters K=2}{fig:x2}%
+  \simplesubfigure{./matlab/img/x4}{2 clusters K=4}{fig:x4}%
+  \simplesubfigure{./matlab/img/x8}{2 clusters K=8}{fig:x8}%
+  \simplesubfigure{./matlab/img/y2}{1 long cluster K=2}{fig:y2}%
+  \simplesubfigure{./matlab/img/y4}{1 long cluster K=4}{fig:y4}%
+  \simplesubfigure{./matlab/img/y8}{1 long cluster K=8}{fig:y8}%
+  \simplesubfigure{./matlab/img/z2}{uniform data K=2}{fig:z12}%
+  \simplesubfigure{./matlab/img/z22}{uniform data K=2}{fig:z22}%
+  \simplesubfigure{./matlab/img/z4}{uniform data K=4}{fig:z4}%
+  \simplesubfigure{./matlab/img/z8}{uniform data K=8}{fig:z18}%
+  \simplesubfigure{./matlab/img/z28}{uniform data K=8}{fig:z28}%
 \subsection{Decision tree}
-\subsection{K-nearest neighbours}git 
+\simplefigure{./tree}{decision tree generated with the c4 algorithm using weka}{fig:tree}
+\subsection{K-nearest neighbours}
 
 \section{code}
 \subsection{k-means}
