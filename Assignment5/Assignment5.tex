@@ -6,7 +6,7 @@
 \usepackage{listings}
 \usepackage{graphicx}
 \usepackage{float}
-\usepackage{caption}
+\usepackage[font=small,skip=3pt]{caption}
 \usepackage[margin=1in]{geometry}
 \lstset{showstringspaces=false,
 		breaklines=true,
@@ -21,12 +21,13 @@
 \maketitle
 
 \newcommand{\simplesubfigure}[3]{
-  \noindent\begin{minipage}{.5\linewidth}
-    \centering
-    \includegraphics[width=.5\linewidth]{#1}
-    \captionof{figure}{#2}
+  \noindent\begin{minipage}{.31\linewidth}
+    \begin{center}
+      \includegraphics[width=1\linewidth]{#1}
+      \captionof{figure}{#2}
+    \end{center}
     \label{#3}
-  \end{minipage}%
+  \end{minipage}\hspace{7pt}
 }
 \newcommand{\simplefigure}[3]{
 	\begin{figure}[H]
@@ -85,16 +86,16 @@ Selecting the class with the closest point gives an argument to support the sele
 
 \subsection{K-nearest neighbours}\label{ap:knn_img}
 \subsubsection{Number of classes = 2}
-\simplefigure{./matlab/img/3_1_2.png}{K = 1, Nr of classes = 2}{fig:3_1_2}
-\simplefigure{./matlab/img/3_3_2.png}{K = 3, Nr of classes = 2}{fig:3_3_2}
-\simplefigure{./matlab/img/3_5_2.png}{K = 5, Nr of classes = 2}{fig:3_5_2}
-\simplefigure{./matlab/img/3_7_2.png}{K = 7, Nr of classes = 2}{fig:3_7_2}
+\simplesubfigure{./matlab/img/3_1_2.png}{K = 1, Nr of classes = 2}{fig:3_1_2}
+\simplesubfigure{./matlab/img/3_3_2.png}{K = 3, Nr of classes = 2}{fig:3_3_2}
+\simplesubfigure{./matlab/img/3_5_2.png}{K = 5, Nr of classes = 2}{fig:3_5_2}
+\simplesubfigure{./matlab/img/3_7_2.png}{K = 7, Nr of classes = 2}{fig:3_7_2}
 
 \subsubsection{Number of classes = 4}
-\simplefigure{./matlab/img/3_1_4.png}{K = 1, Nr of classes = 4}{fig:3_1_4}
-\simplefigure{./matlab/img/3_3_4.png}{K = 3, Nr of classes = 4}{fig:3_3_4}
-\simplefigure{./matlab/img/3_5_4.png}{K = 5, Nr of classes = 4}{fig:3_5_4}
-\simplefigure{./matlab/img/3_7_4.png}{K = 7, Nr of classes = 4}{fig:3_7_4}
+\simplesubfigure{./matlab/img/3_1_4.png}{K = 1, Nr of classes = 4}{fig:3_1_4}
+\simplesubfigure{./matlab/img/3_3_4.png}{K = 3, Nr of classes = 4}{fig:3_3_4}
+\simplesubfigure{./matlab/img/3_5_4.png}{K = 5, Nr of classes = 4}{fig:3_5_4}
+\simplesubfigure{./matlab/img/3_7_4.png}{K = 7, Nr of classes = 4}{fig:3_7_4}
 
 \section{code}
 \subsection{k-means}
