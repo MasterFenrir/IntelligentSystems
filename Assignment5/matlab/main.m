@@ -6,6 +6,6 @@ x = w6_1x;
 y = w6_1y;
 z = w6_1z;
 
-[means, mask] = simpleKMeans(x, 2);
+[means, mask] = simpleKMeans(y, 4);
 
-plotKMeans(means, mask, 'x');
+plotKMeans(means, mask, 'zeta');

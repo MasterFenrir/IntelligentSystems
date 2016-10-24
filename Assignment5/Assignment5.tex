@@ -25,16 +25,16 @@
     \begin{center}
       \includegraphics[width=1\linewidth]{#1}
       \captionof{figure}{#2}
+      \label{#3}
     \end{center}
-    \label{#3}
-  \end{minipage}\hspace{6pt}
+  \end{minipage}\hspace{7pt}
 }
 \newcommand{\simplefigure}[3]{
 	\noindent\begin{figure}[H]
   	\centering
     	\makebox[.6\textwidth]
     	{
-    		\includegraphics[width=1\textwidth]{#1}
+    		\includegraphics[height=0.4\textheight]{#1}
  		} \\
   		\caption{#2}
   		\label{#3}
@@ -44,9 +44,30 @@
 	\lstinputlisting[language=Matlab]{#1}
 }
 
-\section{K-means}
+\section{K-means}	
+\subsection{Code}
+The implementation of K-means written for this exercise can be found in the appendix under \ref{ap:K-means}. 
+For the potting of the graphs i have chosen to represent each cluster as a color. plotting each of the data points belonging to a cluster in the same colour. The prototype for this cluster is drawn in the same plot as a larger star \ref{fig:means}. The code for doing this drawing is found in the appendix \ref{ap:plot_k-means}
+\subsection{Influence of K on the clusters}
+In order to examine the influence of the variable K that determines the number of clusters we try to fit with the K-means algorithm the algorithm is run against 3 different sets of data for different values of K.
+\subsubsection{Two clusters	}
+The first data set consists of two intuitively identifiable clusters. For a K of two the algorithm will always find these two clusters and chose corresponding means as their prototypes, see \ref{fig:x2}. 
+When we chose larger values for K, 4 and 8, we notice that the results are different each time we run the algorithm, the chosen means aren't always nicely balanced over the two clusters we found earlier either, see \ref{fig:x4} and \ref{fig:x8}. The reason for this being that in some situations all the points in one of the clusters will always be attributed to a point that was chosen  closer to that cluster then the other points, ending up in a local minimum with that one point claiming one whole cluster and always being closer to it then the other 3 points. 
+This leads for example to there being 3 different configurations for k = 4 one in which there are tree prototypes on the left cluster one which is balanced and one with 3 prototypes on the right, see \ref{fig:x4}, \ref{fig:x42} and \ref{fig:x43}, there are still some differences in the way the two clusters are split as well, where the algorithm gets stuck on different local minima. For k = 8 the same process happens but there are even more possible configurations.
+\subsubsection{One elongated cluster}
+The second data set that is examined seems to consist of one rather elongated cluster. The clustering is stable for K = 2, always fining the same two clusters it is however unstable for k = 4, see for example \ref{fig:y4} and \ref{fig:y42). The clustering is also unstable for K = 8. This tells us that the distribution that generated these points 
+for what number of means would you consider the clustering to be
+“stable/predictable”? Why? What does this tell you about the distribution that
+generated these points?
+\subsubsection{Uniformly distributed data Points in a square space}
+
+one could say that the clustering for K = 2 is not predictable,
+while for K = 4, it is. Explain why and how this is possible.
+\subsubsection{Conclusion}
+
 \section{Decision tree}
-In order to build a decision tree we first need to know what decisions we could make, in order to make this as simple as possible we will only make binary choices. Doing so we decide upon the decision questions in \ref{}
+In order to build a decision tree we first need to know what decisions we could make, in order to make this as simple as possible we will only make binary choices. Doing so we decide upon the decision questions in \ref{tab:1}. 
+In order to build a decision tree based on this table of choices we can try to minimize the amount of classification error we make, for this we use the impurity measure and the impurity drop defined by the following formula.\\
 $i \left ( N \right ) = 1 - \max _{j} P\left ( \omega _{j} \right )$\\
 $\Delta i \left ( N \right ) = i \left ( N \right ) - P_{L}i\left ( N_{L} \right ) - P_{R}i\left ( N_{R} \right )$\\
 Using these formula we can make a decision on what way to order the tree by trying to maximising the impurity drop, so that we always make the decision that reduces the amount of miss classifications the most.\\
@@ -59,17 +80,21 @@ At this point any question can be chosen, but let’s go with the fluke.
 This will give us two possible situations lets start with whales that do not show a fluke. In this case only one question will give us more information and that is whether it has a dorsal fin, if so then it's a killer whale otherwise it's a beluga.
 now the other possibility is examined where the whale flukes when it dives. This gives us the following impurity drops.\\
 $i_{fluke} = 1 - \frac{1}{3} = \frac{2}{3} $\\
-$\Delta i_{fin|fluke} = \frac{2}{3} - \left ( \frac{1}{3}  \cdot \frac{0}{1} \right ) - \left ( \frac{2}{3} \cdot \frac{1}{2}\right ) = \frac{1}{3}$\\
-$\Delta i_{size|fluke} = \frac{2}{3} - \left ( \frac{1}{3}  \cdot \frac{0}{1} \right ) - \left ( \frac{2}{3} \cdot \frac{1}{2}\right ) = \frac{1}{3}$\\
-$\Delta i_{tooth|fluke} = \frac{2}{3} - \left ( \frac{1}{3}  \cdot \frac{0}{1} \right ) - \left ( \frac{2}{3} \cdot \frac{1}{2}\right ) = \frac{1}{3}$\\
-At this leaf anything can be chosen lets go with the presence of a dorsal fin, if this is present we are done other wise there are still two possibilities left namely a Narwhal whale or a Bowhead whale. To make a distinction between those two we can decide either by the presence of a elongated front tooth or by the rather sizeable size difference. Let's choose to go with the size difference. we now end up with the same decision tree as running the c4.5 algorithm in Weka did.
+$\Delta i_{fin | fluke} = \frac{2}{3} - \left ( \frac{1}{3}  \cdot \frac{0}{1} \right ) - \left ( \frac{2}{3} \cdot \frac{1}{2}\right ) = \frac{1}{3}$\\
+$\Delta i_{size | fluke} = \frac{2}{3} - \left ( \frac{1}{3}  \cdot \frac{0}{1} \right ) - \left ( \frac{2}{3} \cdot \frac{1}{2}\right ) = \frac{1}{3}$\\
+$\Delta i_{tooth | fluke} = \frac{2}{3} - \left ( \frac{1}{3}  \cdot \frac{0}{1} \right ) - \left ( \frac{2}{3} \cdot \frac{1}{2}\right ) = \frac{1}{3}$\\
+At this leaf anything can be chosen lets go with the presence of a dorsal fin, if this is present we are done other wise there are still two possibilities left namely a Narwhal whale or a Bowhead whale. To make a distinction between those two we can decide either by the presence of a elongated front tooth or by the rather sizeable size difference. Let's choose to go with the size difference. we now end up with the same decision tree as running the c4.5 algorithm in Weka did \ref{fig:tree}.
 
 \section{K-nearest neighbours}
 \subsection{K-nearest neighbours implementation}
-The implementation is availab le in \ref{ap:knn}
+The implementation is available in \ref{ap:knn}
 
 \subsection{Classification for different values of K} \label{ss:class}
 \ref{ap:knn_img} contains the resulting images. When K = 1, the two groups of points, the green circles and the red crosses, have their own well-defined territory. As values of K increase, more members of a class seem to be in an area which would be classified as the other. This makes sense, as more matches are necessary to come to a satisfactory conclusion. In an area mostly populated by green circles, a new point taking the five closest distances is very likely to end up with more green circles as nearest points than red crosses.
+
+Using the training data, KNN should be able to generalize and predict the classification of a new, unseen data point. If the value of K is too low however, KNN does not give a prediction based on generalization but on exact memory. This can be seen in in figure \ref{fig:3_1_2}, in the upper left corner. There are mostly green circles, with only one red cross. Everything close to the red cross is marked as such, while the general area disagrees. This is the result of simply matching the new data point to the data set instead of basing it on a generalization which is learned from the data set.
+
+Increasing the value of K helps with this, as more surrounding data is taken into account before making a decision. However, increasing K too much could result in inaccuracies as well. For example, in figures \ref{fig:3_1_2} and \ref{fig:3_3_2} from the middle going in the direction of the bottom left corner, a path of red crosses exists. Since these are more than one and seemingly follow a pattern, this could be significant as opposed to the one red cross mentioned previously. But if we increase K beyond 3, this path gets lost. Basically, when increasing K, we risk losing nuances in the decision boundary.
 
 \subsection{Contending Classes}
 With the increased number of classes (2 to 4), the effect described in \ref{ss:class} persists, as would be expected.
@@ -85,30 +110,36 @@ In case of multiple contending classes, a choice needs to be made. There are fou
 The first option is rather arbitrary and would prioritize specific classes with no other reason than their number. Choosing a random class gets rid of the arbitrary prioritization, but offers no real basis as to why that class was chosen.
 Selecting the class with the closest point gives an argument to support the selection of that specific class, but that distance could be a possible outlier, since it is just one. To take everything into account, selecting the class with the lowest average distance gives the most reliable result.
 
+In figure \ref{fig:3_7_4_lowest} the lowest class number was chosen as opposed to the lowest average distance. While it does look similar in general structure, it does not have the reliability that figure \ref{fig:3_7_4} has, which uses the lowest average distance.
+
 \appendix
 \section{figures}
-\subsection{K-means}
+\subsection{K-means}\label{fig:means}
   \simplesubfigure{./matlab/img/x2}{2 clusters K=2}{fig:x2}%
   \simplesubfigure{./matlab/img/x4}{2 clusters K=4}{fig:x4}%
+  \simplesubfigure{./matlab/img/x24}{2 clusters K=4}{fig:x42}%
+  \simplesubfigure{./matlab/img/x34}{2 clusters K=4}{fig:x43}%
   \simplesubfigure{./matlab/img/x8}{2 clusters K=8}{fig:x8}%
   \simplesubfigure{./matlab/img/y2}{1 long cluster K=2}{fig:y2}%
   \simplesubfigure{./matlab/img/y4}{1 long cluster K=4}{fig:y4}%
+  \simplesubfigure{./matlab/img/omega4}{1 long cluster K=4}{fig:y42}%
   \simplesubfigure{./matlab/img/y8}{1 long cluster K=8}{fig:y8}%
   \simplesubfigure{./matlab/img/z2}{uniform data K=2}{fig:z12}%
   \simplesubfigure{./matlab/img/z22}{uniform data K=2}{fig:z22}%
   \simplesubfigure{./matlab/img/z4}{uniform data K=4}{fig:z4}%
   \simplesubfigure{./matlab/img/z8}{uniform data K=8}{fig:z18}%
   \simplesubfigure{./matlab/img/z28}{uniform data K=8}{fig:z28}%
+  
 \subsection{Decision tree}
 \begin{center}
 \begin{tabular}{l | l l l l}
-\textbf{species} & \textbf{shows fluke when diving} & \textbf{has dorsal fin} & \textbf{is larger then 20 meter} & \textbf{has a elongated tooth}\\
+\textbf{whale species} & \textbf{flukes when diving} & \textbf{has dorsal fin} & \textbf{larger then 20 meter} & \textbf{Elongated tooth}\\
 \hline
-Killer whale & no & yes & no & no\\
-Beluga whale & no & no & no & no\\
-Narwal whale & yes & no & no & yes\\
-Bowhead whale & yes & no & yes & no\\
-Blue whale & yes & yes & yes & no\\
+Killer & no & yes & no & no\\
+Beluga & no & no & no & no\\
+Narwal & yes & no & no & yes\\
+Bowhead & yes & no & yes & no\\
+Blue & yes & yes & yes & no\\
 \end{tabular}
 \captionof{table}{Possible choices to be made in the classification of whales against the implications of the answers}
 \label{tab:1}
@@ -118,20 +149,21 @@ Blue whale & yes & yes & yes & no\\
 \subsection{K-nearest neighbours}\label{ap:knn_img}
 \subsubsection{Number of classes = 2}
 \simplesubfigure{./matlab/img/3_1_2.png}{K = 1, Nr of classes = 2}{fig:3_1_2}%
-\simplesubfigure{./matlab/img/3_3_2.png}{K = 3, Nr of classes = 2}{fig:3_1_2}%
-\simplesubfigure{./matlab/img/3_5_2.png}{K = 5, Nr of classes = 2}{fig:3_1_2}%
-\simplesubfigure{./matlab/img/3_7_2.png}{K = 7, Nr of classes = 2}{fig:3_1_2}%
+\simplesubfigure{./matlab/img/3_3_2.png}{K = 3, Nr of classes = 2}{fig:3_3_2}%
+\simplesubfigure{./matlab/img/3_5_2.png}{K = 5, Nr of classes = 2}{fig:3_5_2}%
+\simplesubfigure{./matlab/img/3_7_2.png}{K = 7, Nr of classes = 2}{fig:3_7_2}%
 
 \subsubsection{Number of classes = 4}
 \simplesubfigure{./matlab/img/3_1_4.png}{K = 1, Nr of classes = 4}{fig:3_1_4}%
-\simplesubfigure{./matlab/img/3_3_4.png}{K = 3, Nr of classes = 4}{fig:3_1_4}%
-\simplesubfigure{./matlab/img/3_5_4.png}{K = 5, Nr of classes = 4}{fig:3_1_4}%
-\simplesubfigure{./matlab/img/3_7_4.png}{K = 7, Nr of classes = 4}{fig:3_1_4}%
+\simplesubfigure{./matlab/img/3_3_4.png}{K = 3, Nr of classes = 4}{fig:3_3_4}%
+\simplesubfigure{./matlab/img/3_5_4.png}{K = 5, Nr of classes = 4}{fig:3_5_4}%
+\simplesubfigure{./matlab/img/3_7_4.png}{K = 7, Nr of classes = 4}{fig:3_7_4}%
+\simplesubfigure{./matlab/img/3_7_4_lowest.png}{K = 7, Nr of classes = 4, point with the lowest class selected}{fig:3_7_4_lowest}%
 
 \section{code}
 \subsection{k-means}
-\mcode{./matlab/simpleKMeans.m}
-\mcode{./matlab/plotKMeans.m}
+\mcode{./matlab/simpleKMeans.m}\label{ap:K-means}
+\mcode{./matlab/plotKMeans.m}\label{ap:plot_k-means}
 \subsection{K-nearest neighbours}\label{ap:knn}
 \mcode{./matlab/KNN.m}
 \mcode{./matlab/simpleFrequencies.m}
