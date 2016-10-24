@@ -12,8 +12,8 @@ function [  ] = plotKMeans( means, clusters, name )
     
     for i = 1:k
         cluster = clusters{i};
-        s1 = scatter(cluster(:, 1), cluster(:, 2), 30, '.' );
-        s2 = scatter(means(i, 1), means(i, 2), 150, 'filled', 'p');
+        s1 = scatter(cluster(:, 1), cluster(:, 2), 70, '.' );
+        s2 = scatter(means(i, 1), means(i, 2), 230, 'filled', 'p');
         s1.MarkerEdgeColor = colours{i};
         s2.MarkerFaceColor = s1.MarkerEdgeColor;
     end
