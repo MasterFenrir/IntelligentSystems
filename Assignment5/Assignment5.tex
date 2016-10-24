@@ -25,8 +25,8 @@
     \begin{center}
       \includegraphics[width=1\linewidth]{#1}
       \captionof{figure}{#2}
+      \label{#3}
     \end{center}
-    \label{#3}
   \end{minipage}\hspace{7pt}
 }
 \newcommand{\simplefigure}[3]{
@@ -53,6 +53,10 @@ The implementation is available in \ref{ap:knn}
 \subsection{Classification for different values of K} \label{ss:class}
 \ref{ap:knn_img} contains the resulting images. When K = 1, the two groups of points, the green circles and the red crosses, have their own well-defined territory. As values of K increase, more members of a class seem to be in an area which would be classified as the other. This makes sense, as more matches are necessary to come to a satisfactory conclusion. In an area mostly populated by green circles, a new point taking the five closest distances is very likely to end up with more green circles as nearest points than red crosses.
 
+Using the training data, KNN should be able to generalize and predict the classification of a new, unseen data point. If the value of K is too low however, KNN does not give a prediction based on generalization but on exact memory. This can be seen in in figure \ref{fig:3_1_2}, in the upper left corner. There are mostly green circles, with only one red cross. Everything close to the red cross is marked as such, while the general area disagrees. This is the result of simply matching the new data point to the data set instead of basing it on a generalization which is learned from the data set.
+
+Increasing the value of K helps with this, as more surrounding data is taken into account before making a decision. However, increasing K too much could result in inaccuracies as well. For example, in figures \ref{fig:3_1_2} and \ref{fig:3_3_2} from the middle going in the direction of the bottom left corner, a path of red crosses exists. Since these are more than one and seemingly follow a pattern, this could be significant as opposed to the one red cross mentioned previously. But if we increase K beyond 3, this path gets lost. Basically, when increasing K, we risk losing nuances in the decision boundary.
+
 \subsection{Contending Classes}
 With the increased number of classes (2 to 4), the effect described in \ref{ss:class} persists, as would be expected.
 
@@ -66,6 +70,8 @@ In case of multiple contending classes, a choice needs to be made. There are fou
 
 The first option is rather arbitrary and would prioritize specific classes with no other reason than their number. Choosing a random class gets rid of the arbitrary prioritization, but offers no real basis as to why that class was chosen.
 Selecting the class with the closest point gives an argument to support the selection of that specific class, but that distance could be a possible outlier, since it is just one. To take everything into account, selecting the class with the lowest average distance gives the most reliable result.
+
+In figure \ref{fig:3_7_4_lowest} the lowest class number was chosen as opposed to the lowest average distance. While it does look similar in general structure, it does not have the reliability that figure \ref{fig:3_7_4} has, which uses the lowest average distance.
 
 \appendix
 \section{figures}
@@ -96,6 +102,7 @@ Selecting the class with the closest point gives an argument to support the sele
 \simplesubfigure{./matlab/img/3_3_4.png}{K = 3, Nr of classes = 4}{fig:3_3_4}
 \simplesubfigure{./matlab/img/3_5_4.png}{K = 5, Nr of classes = 4}{fig:3_5_4}
 \simplesubfigure{./matlab/img/3_7_4.png}{K = 7, Nr of classes = 4}{fig:3_7_4}
+\simplesubfigure{./matlab/img/3_7_4_lowest.png}{K = 7, Nr of classes = 4, point with the lowest class selected}{fig:3_7_4_lowest}
 
 \section{code}
 \subsection{k-means}
