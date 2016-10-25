@@ -55,15 +55,14 @@ The first data set consists of two intuitively identifiable clusters. For a K of
 When we chose larger values for K, 4 and 8, we notice that the results are different each time we run the algorithm, the chosen means aren't always nicely balanced over the two clusters we found earlier either, see \ref{fig:x4} and \ref{fig:x8}. The reason for this being that in some situations all the points in one of the clusters will always be attributed to a point that was chosen  closer to that cluster then the other points, ending up in a local minimum with that one point claiming one whole cluster and always being closer to it then the other 3 points. 
 This leads for example to there being 3 different configurations for k = 4 one in which there are tree prototypes on the left cluster one which is balanced and one with 3 prototypes on the right, see \ref{fig:x4}, \ref{fig:x42} and \ref{fig:x43}, there are still some differences in the way the two clusters are split as well, where the algorithm gets stuck on different local minima. For k = 8 the same process happens but there are even more possible configurations.
 \subsubsection{One elongated cluster}
-The second data set that is examined seems to consist of one rather elongated cluster. The clustering is stable for K = 2, always fining the same two clusters it is however unstable for k = 4, see for example \ref{fig:y4} and \ref{fig:y42}. The clustering is also unstable for K = 8. This tells us that the distribution that generated these points 
-for what number of means would you consider the clustering to be
-“stable/predictable”? Why? What does this tell you about the distribution that
-generated these points?
+The second data set that is examined seems to consist of one rather elongated cluster. The clustering is stable for K = 2, always fining the same two clusters it is however unstable for k = 4, see for example \ref{fig:y4} and \ref{fig:y42}. The clustering is also unstable for K = 8. This tells us that the distribution that generated these is atleast a little biased towards the left or the right side of what seems to be one cluster. causing the two prototypes to both move to one of the sides.
 \subsubsection{Uniformly distributed data Points in a square space}
-
-one could say that the clustering for K = 2 is not predictable,
-while for K = 4, it is. Explain why and how this is possible.
+The last data set consists of Uniformly distributed data Points that are contained within a square area. The clustering for this data seems to have two configurations for k = 2, see \ref{fig:z2}, \ref{fig:z22}, for k = 4 however the final clusters are always the same, the reason for these configurations of the means is simple the confinement of the data within a square causes the corners to contain relatively many data points, this pulls the means towards each of the corners, in the case of K = 2 this leads to two possible outcomes in which each mean claims two corners. For k = 4 each means will simply claim a corner.
 \subsubsection{Conclusion}
+After having applied the K-means algorithm to the data sets and examining the results. We can see that K-means can be very effective in identifying clear somewhat spherical if cluster if the amount of clusters is known, or can be inferred by some other method. It even works well when the clusters strongly overlap.
+Overall the K-means algorithm is really good at finding somewhat spherical clusters if there is  a way to know how many clusters should be found, and it also defines the clusters nicely by giving a prototype for it. It will, however fail on less sphere like clusters, or when a incorrect number is chosen for the number of clusters.
+What are your conclusions about the K-means algorithm? When is it useful/not
+useful?
 
 \section{Decision tree}
 In order to build a decision tree we first need to know what decisions we could make, in order to make this as simple as possible we will only make binary choices. Doing so we decide upon the decision questions in \ref{tab:1}. 
