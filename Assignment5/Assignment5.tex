@@ -8,6 +8,7 @@
 \usepackage{float}
 \usepackage[font=small,skip=3pt]{caption}
 \usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true]{hyperref}
 \lstset{showstringspaces=false,
 		breaklines=true,
 		postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow\space}}}			
@@ -66,38 +67,38 @@ while for K = 4, it is. Explain why and how this is possible.
 \subsubsection{Conclusion}
 
 \section{Decision tree}
-In order to build a decision tree we first need to know what decisions we could make, in order to make this as simple as possible we will only make binary choices. Doing so we decide upon the decision questions in \ref{tab:1}. 
-In order to build a decision tree based on this table of choices we can try to minimize the amount of classification error we make, for this we use the impurity measure and the impurity drop defined by the following formula.\\
+In order to build a decision tree we first need to know what decisions we could make. To make the tree as simple as possible we will only make binary choices. Doing so we decide upon the decision questions in \autoref{tab:1}. 
+To build a decision tree based on this table of choices we can try to minimize the amount of classification errors we make, to do so this we use the impurity measure and the impurity drop defined by the following formula.\\
 $i \left ( N \right ) = 1 - \max _{j} P\left ( \omega _{j} \right )$\\
 $\Delta i \left ( N \right ) = i \left ( N \right ) - P_{L}i\left ( N_{L} \right ) - P_{R}i\left ( N_{R} \right )$\\
-Using these formula we can make a decision on what way to order the tree by trying to maximising the impurity drop, so that we always make the decision that reduces the amount of miss classifications the most.\\
+Using these formula we can make a decision on what way to order the tree by trying to maximise the impurity drop, so that we always make the decision that reduces the amount of miss classifications the most.\\
 $i_{start} = 1 - \frac{1}{5} = \frac{4}{5} $\\
 $\Delta i_{fin} = \frac{4}{5} - \left ( \frac{3}{5}  \cdot \frac{2}{3} \right ) - \left ( \frac{2}{5} \cdot \frac{1}{2}\right ) = 0.2$\\
 $\Delta i_{fluke} = \frac{4}{5} - \left ( \frac{3}{5}  \cdot \frac{2}{3} \right ) - \left ( \frac{2}{5} \cdot \frac{1}{2}\right ) = 0.2$\\
 $\Delta i_{size} = \frac{4}{5} - \left ( \frac{3}{5}  \cdot \frac{2}{3} \right ) - \left ( \frac{2}{5} \cdot \frac{1}{2}\right ) = 0.2$\\
 $\Delta i_{tooth} = \frac{4}{5} - \left ( \frac{1}{5}  \cdot \frac{0}{1} \right ) - \left ( \frac{4}{5} \cdot \frac{3}{4}\right ) = 0.2$\\
 At this point any question can be chosen, but let’s go with the fluke.
-This will give us two possible situations lets start with whales that do not show a fluke. In this case only one question will give us more information and that is whether it has a dorsal fin, if so then it's a killer whale otherwise it's a beluga.
-now the other possibility is examined where the whale flukes when it dives. This gives us the following impurity drops.\\
+This will give us two possible situations. Let us start with whales that do not show a fluke. In this case only one question will give us more information and that is whether it has a dorsal fin, if so then it's a killer whale, otherwise it's a beluga.
+The other possibility is examined where the whale flukes when it dives. This gives us the following impurity drops.\\
 $i_{fluke} = 1 - \frac{1}{3} = \frac{2}{3} $\\
 $\Delta i_{fin | fluke} = \frac{2}{3} - \left ( \frac{1}{3}  \cdot \frac{0}{1} \right ) - \left ( \frac{2}{3} \cdot \frac{1}{2}\right ) = \frac{1}{3}$\\
 $\Delta i_{size | fluke} = \frac{2}{3} - \left ( \frac{1}{3}  \cdot \frac{0}{1} \right ) - \left ( \frac{2}{3} \cdot \frac{1}{2}\right ) = \frac{1}{3}$\\
 $\Delta i_{tooth | fluke} = \frac{2}{3} - \left ( \frac{1}{3}  \cdot \frac{0}{1} \right ) - \left ( \frac{2}{3} \cdot \frac{1}{2}\right ) = \frac{1}{3}$\\
-At this leaf anything can be chosen lets go with the presence of a dorsal fin, if this is present we are done other wise there are still two possibilities left namely a Narwhal whale or a Bowhead whale. To make a distinction between those two we can decide either by the presence of a elongated front tooth or by the rather sizeable size difference. Let's choose to go with the size difference. we now end up with the same decision tree as running the c4.5 algorithm in Weka did \ref{fig:tree}.
+At this leaf anything can be chosen, but we will go with the presence of a dorsal fin. If the whale has a dorsal fin, we are done. If not, then there are still two possibilities left, namely a Narwhal whale or a Bowhead whale. To make a distinction between those two we can decide either by the presence of a elongated front tooth or by the rather large size difference. We'll go with the size difference. Now we end up with the same decision tree as running the c4.5 algorithm in Weka did \autoref{fig:tree}.
 
 \section{K-nearest neighbours}
 \subsection{K-nearest neighbours implementation}
-The implementation is available in \ref{ap:knn}
+The implementation is available in \autoref{ap:knn}.
 
 \subsection{Classification for different values of K} \label{ss:class}
-\ref{ap:knn_img} contains the resulting images. When K = 1, the two groups of points, the green circles and the red crosses, have their own well-defined territory. As values of K increase, more members of a class seem to be in an area which would be classified as the other. This makes sense, as more matches are necessary to come to a satisfactory conclusion. In an area mostly populated by green circles, a new point taking the five closest distances is very likely to end up with more green circles as nearest points than red crosses.
+The resulting images are visible in \autoref{ap:knn_img}. When K = 1, the two groups of points, the green circles and the red crosses, have their own well-defined territory. As values of K increase, more members of a class seem to be in an area which would be classified as the other. This makes sense, as more matches are necessary to come to a satisfactory conclusion. In an area mostly populated by green circles, a new point taking the five closest distances is very likely to end up with more green circles as nearest points than red crosses.
 
-Using the training data, KNN should be able to generalize and predict the classification of a new, unseen data point. If the value of K is too low however, KNN does not give a prediction based on generalization but on exact memory. This can be seen in in figure \ref{fig:3_1_2}, in the upper left corner. There are mostly green circles, with only one red cross. Everything close to the red cross is marked as such, while the general area disagrees. This is the result of simply matching the new data point to the data set instead of basing it on a generalization which is learned from the data set.
+Using the training data, KNN should be able to generalize and predict the classification of a new, unseen data point. If the value of K is too low however, KNN does not give a prediction based on generalization but on exact memory. This can be seen in in \autoref{fig:3_1_2}, in the upper left corner. There are mostly green circles, with only one red cross. Everything close to the red cross is marked as such, while the general area disagrees. This is the result of simply matching the new data point to the data set instead of basing it on a generalization which is learned from the data set.
 
-Increasing the value of K helps with this, as more surrounding data is taken into account before making a decision. However, increasing K too much could result in inaccuracies as well. For example, in figures \ref{fig:3_1_2} and \ref{fig:3_3_2} from the middle going in the direction of the bottom left corner, a path of red crosses exists. Since these are more than one and seemingly follow a pattern, this could be significant as opposed to the one red cross mentioned previously. But if we increase K beyond 3, this path gets lost. Basically, when increasing K, we risk losing nuances in the decision boundary.
+Increasing the value of K helps with this, as more surrounding data is taken into account before making a decision. However, increasing K too much could result in inaccuracies as well. For example, in \autoref{fig:3_1_2} and \autoref{fig:3_3_2} from the middle going in the direction of the bottom left corner, a path of red crosses exists. Since these are more than one and seemingly follow a pattern, this could be significant as opposed to the one red cross mentioned previously. But if we increase K beyond 3, this path gets lost. Basically, when increasing K, we risk losing nuances in the decision boundary.
 
 \subsection{Contending Classes}
-With the increased number of classes (2 to 4), the effect described in \ref{ss:class} persists, as would be expected.
+With the increased number of classes (2 to 4), the effect described in \autoref{ss:class} persists, as would be expected.
 
 In case of multiple contending classes, a choice needs to be made. There are four simple options for this:
 \begin{itemize}
@@ -110,7 +111,7 @@ In case of multiple contending classes, a choice needs to be made. There are fou
 The first option is rather arbitrary and would prioritize specific classes with no other reason than their number. Choosing a random class gets rid of the arbitrary prioritization, but offers no real basis as to why that class was chosen.
 Selecting the class with the closest point gives an argument to support the selection of that specific class, but that distance could be a possible outlier, since it is just one. To take everything into account, selecting the class with the lowest average distance gives the most reliable result.
 
-In figure \ref{fig:3_7_4_lowest} the lowest class number was chosen as opposed to the lowest average distance. While it does look similar in general structure, it does not have the reliability that figure \ref{fig:3_7_4} has, which uses the lowest average distance.
+In \autoref{fig:3_7_4_lowest} the lowest class number was chosen as opposed to the lowest average distance. While it does look similar in general structure, it does not have the reliability that \autoref{fig:3_7_4} has, which uses the lowest average distance.
 
 \appendix
 \section{figures}
