@@ -1,6 +1,5 @@
 function [  ] = plotScatter( S1, S2, T )
-%PLOTNORMALDISTRIBUTION Summary of this function goes here
-%   Detailed explanation goes here
+%PLOTSCATTER Plot a scatter of the sets of given points
 
     figure(1);
     hold off; plot(0,0); box on; 
@@ -14,5 +13,6 @@ function [  ] = plotScatter( S1, S2, T )
     ylabel(['Value'],'fontsize',16);
     set(gca,'fontsize',16)
 
+    print('img/sc', '-dpng')
 end
 
