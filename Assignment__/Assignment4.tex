@@ -5,20 +5,60 @@
 \usepackage{amssymb}
 \usepackage{listings}
 \usepackage{graphicx}
-\usepackage{caption}
-\usepackage{subcaption}
 \usepackage{float}
+\usepackage[font=small,skip=3pt]{caption}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true]{hyperref}
 \lstset{showstringspaces=false,
 		breaklines=true,
-		postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow\space}}}
-    	
+		postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\hookrightarrow\space}}}			
+
+
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
 \begin{document}
-\title{Intelligent Systems Assignment 4}
+\title{Intelligent Systems Assignment 6}
 \author{Wessel Becker (1982362) \& Sander ten Hoor (2318555)}
 \maketitle
 
-\section{Matlab Code}
+\newcommand{\simplesubfigure}[3]{
+  \noindent\begin{minipage}{.31\linewidth}
+    \begin{center}
+      \includegraphics[width=1\linewidth]{#1}
+      \captionof{figure}{#2}
+      \label{#3}
+    \end{center}
+  \end{minipage}\hspace{7pt}
+}
+\newcommand{\simplefigure}[3]{
+	\noindent\begin{figure}[H]
+  	\centering
+    	\makebox[.6\textwidth]
+    	{
+    		\includegraphics[height=0.4\textheight]{#1}
+ 		} \\
+  		\caption{#2}
+  		\label{#3}
+	\end{figure}
+}
+\newcommand{\mcode}[2]{
+	\lstinputlisting[language=Matlab]{#1}\label{#2}
+}
 
-\section{Work done}
+\section{Normal Distributions}
+\subsection{Plotting}
+\subsection{Estimating the prior probabilities}
+\subsection{Normalized plots}
+\subsection{Solving}
+\subsection{Determining the classes}
+\subsection{Misclassification rate}
+
+\section{Dendrogram}
+
+
+\appendix
+\section{Figures}
+
+\section{Code}
 
 \end{document}
