@@ -49,18 +49,59 @@
 \subsection{Plotting}
 \subsection{Estimating the prior probabilities}
 \subsection{Normalized plots}
-\subsection{Solving}
+\subsection{Solving}\label{ss:solving}
+Matlab has a function capable of solving mathematical equations. This was used, as seen in \autoref{ss:solver} to obtain the following values as the intersection points of the two normal distributions: 37.1049 and 84.7275.
 \subsection{Determining the classes}
+Using the obtained decision boundaries, the data points from set \textbf{T} have been classified by giving them a colour. This is visible in \autoref{fig:class}.
+
 \subsection{Misclassification rate}
+There are two decision boundaries, as calculated earlier. However, at a decision boundary the normal distribution does not simply stop and there is still a chance that something is misclassified. For example, in \autoref{fig:normalalizednormal} TODO REPLACE we can see where the two normal distributions clearly cross. At this point, everything to the left of the intersection is classified as \textbf{blue} while everything to the right of it is classified as \textbf{red}. The misclassification rate for the \textbf{red} in this situation is the cumulative probability of the corresponding normal distribution to the left of the intersection. However, this is not all of it. There is a second intersection, as \autoref{ss:solving} showed. To the right of this intersection, everything is classified as \textbf{blue} again. This could lead to potential misclassification again. 
+
+The possible misclassification of a \textbf{blue} point is everything that goes through the \textbf{red} normal distribution. Everything to the left of the first intersection is marked as \textbf{blue} and everything to the right of the second is marked as \textbf{blue}, but everything in between is marked as \textbf{red}. Thus, the total cumulatative probability of this area is the error rate. This is simply calculated by subtracting the cumulatative probability up to the right intersection from the cumulatative probability up to the left intersection. See \autoref{fig:S1_CDF}. The height difference between the two markers is the error rate. This is 0.0817.
+
+The total probability of a misclassification of a \textbf{red} datapoint is the cumulatative probabilities to the left of the first intersection and to the right of the second intersection added together, because everything between those two is already classified as \textbf{red}.
+The first one is simple, the cumulatative probability up to 37.1049 using the cumulatative probability function. The second part is the prior probability minus the cumulatative probability up to 84.7275. It is not 1, as the normal distributions are normalized, such that together they have a total probability of 1.
+See \autoref{fig:S2_CDF}. The total probability of a missclassification is the prior probability minus value marked in the top right plus the value marked on the bottom. This results in a classification error of 0.0404.
 
 \section{Dendrogram}
 
 
 \appendix
 \section{Figures}
-\simplefigure{./images/1a.png}{A scatter plot of the s1 one and s2 datasets, as well as the new measurements that need to classified.}{fig:scatter}
-\simplefigure{./images/1b.png}{Here we can see the normal distributions for the s1 and s2 datasets fitted over the scatter of these datasets}{fig:normal}
-\simplefigure{./images/1c.png}{In this plot we normalized the the probability density functions for the prior probabilities}{fig:normalalizednormal}
+\subsection{Normal Distributions}
+\simplefigure{./matlab/img/sc.png}{A scatter plot of the \textbf{S1} one and \textbf{S2} datasets, as well as the new measurements that need to classified.}{fig:scatter}
+
+\simplefigure{./matlab/img/ndb.png}{Here we can see the normal distributions for the \textbf{S1} and \textbf{S2} datasets fitted over the scatter of these datasets}{fig:normal}
+
+\simplefigure{./matlab/img/pp.png}{In this plot we normalized the the probability density functions for the prior probabilities}{fig:normalalizednormal}
+
+\simplefigure{./matlab/img/classified.png}{The datapoints \textbf{T} classified by giving them a colour}{fig:class}
+
+\simplefigure{./matlab/img/S1_CDF.png}{The cumulatative probability for S1, normalized using the prior probability}{fig:S1_CDF}
+
+\simplefigure{./matlab/img/S2_CDF.png}{The cumulatative probability for S2, normalized using the prior probability}{fig:S2_CDF}
+
+\subsection{Dendrogram}
+
 \section{Code}
+\subsection{Normal Distributions}
+\subsubsection{plotScatter.m}
+\mcode{./matlab/plotScatter.m}{lst:scatter}
+\subsubsection{plotNormalDistributions.m}
+\mcode{./matlab/plotNormalDistributions.m}{lst:db}
+\subsubsection{priorProbability.m}
+\mcode{./matlab/priorProbability.m}{lst:pp}
+\subsubsection{plotPosteriorProbability.m}
+\mcode{./matlab/plotPosteriorProbability.m}{lst:postp}
+\subsubsection{decisionBoundarySolver.m}\label{ss:solver}
+\mcode{./matlab/decisionBoundarySolver.m}{lst:dcbs}
+\subsubsection{plotClassified.m}
+\mcode{./matlab/plotClassified.m}{lst:plclass}
+\subsubsection{plotCDF.m}
+\mcode{./matlab/plotCDF.m}{lst:plcdf}
+\subsubsection{meanAndStdef}
+\mcode{./matlab/meanAndStdef.m}{lst:mnstddef}
+
+\subsection{Dendrogram}
 
 \end{document}

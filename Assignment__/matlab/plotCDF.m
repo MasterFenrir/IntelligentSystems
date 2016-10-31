@@ -16,7 +16,7 @@ function [ firstBoundValue, secondBoundValue ] = plot( prior, data, xRange, firs
     xlabel(['Value'],'fontsize',16);
     ylabel(['Cumulative probability'],'fontsize',16);
     
-    print(strcat('img/', fileName), '-dpng');
+    %print(strcat('img/', fileName), '-dpng');
 
 end
 
