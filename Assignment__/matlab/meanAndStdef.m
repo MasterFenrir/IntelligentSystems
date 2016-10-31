@@ -1,6 +1,6 @@
 function [ mean, stddef ] = meanAndStdef( Data )
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+%MEANANDSTDEF Easy way of getting the mean and the standard deviaton
+% of a set of points
     
     res1 = mle(Data);
     mean = res1(1);

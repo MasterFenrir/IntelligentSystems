@@ -27,5 +27,7 @@ function [ ] = plotNormalDistributions( S1, S2 )
     plot(x,gS1, 'b');
     plot(x,gS2, 'r');
     ylabel(['Probability density'],'fontsize',16);
+    
+    print('img/ndb', '-dpng')
 end
 
