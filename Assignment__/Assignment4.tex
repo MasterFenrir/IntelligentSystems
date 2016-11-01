@@ -82,7 +82,13 @@ The first one is simple, the cumulatative probability up to 37.1049 using the cu
 See \autoref{fig:S2_CDF}. The total probability of a missclassification is the prior probability minus value marked in the top right plus the value marked on the bottom. This results in a classification error of 0.0404.
 
 \section{Dendrogram}
+For this exercise a dataset of AEX shares was considered. More specifically the data set is de relative change of the stock values per day, for 277 trading days in some year. 
 
+We will try to see if there might be some clusters of similar stocks in this dataset. The first step will be to create a hierarchical clustering of the data and visualize the results. For this visualization we will use a dendogram, which can be seen in figure \ref{fig:dendogram}. For this dendogram a euclidean distance measure was used, however squared euclidean could work as well, when keeping in mind that larger distances would be exaggerated in the resulting dendogram. For the linkage strategy a complete linkage was chosen which will lead to more compact clusters then single linkage, which can lead to very long irregular clusters.
+
+When we take a look at the dendogram we can see that several of the largest companies are boot grouped as very similar to the AEX index as a whole. These are RDS and then AH, HEIN and UNIL, where these last tree are al tree are all closely related to the foods industrie. When 
+
+we start looking for places where we might wan't to make a cut in this dendogram. We could cut of only the AEG stock which seems to be by far the furthest removed from the other stocks. Other cuts that would be interesting would be one at around 0.35 or at around 0.45 euclidean distance between the 277 measurements of the stock growths. Al these cuts would be in places where the higher level clusters would be significantly less compact as the lower clusters. which can be seen by there being allot of vertical space between the branching point in this area. 
 
 \appendix
 \section{Figures}
@@ -120,6 +126,8 @@ See \autoref{fig:S2_CDF}. The total probability of a missclassification is the p
 \mcode{./matlab/plotCDF.m}{lst:plcdf}
 \subsubsection{meanAndStdef}
 \mcode{./matlab/meanAndStdef.m}{lst:mnstddef}
+\subsection{plotDendogram}
+\mcode{./matlab/plotDendogram.m}{lst:dendogram}
 
 \subsection{Dendrogram}
 

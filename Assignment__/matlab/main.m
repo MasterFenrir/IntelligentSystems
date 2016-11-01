@@ -6,7 +6,7 @@
  [first, second] = decisionBoundarySolver(normdist.S1, normdist.S2);
 % plotClassified(normdist.S1, normdist.S2, normdist.T, first, second);
 [p1, p2] = priorProbability(normdist.S1, normdist.S2);
-[mean, stddef] = meanAndStdef(normdist.S2)
+[mean, stddef] = meanAndStdef(normdist.S2);
 
 % [S1first, S1second] = plotCDF(p1, normdist.S1, -40:0.05:100, first, second, 'S1_CDF');
 % 
@@ -17,9 +17,3 @@
 % missClassChanceS2 = (p2 - S2second) + S2first
 
 % decisionBoundarySolver(normdist.S1, normdist.S2);
-
-treeThing = load('dataAEX.mat');
-treeLabels = load('labelsAEX.mat');
-% dists = pdist(treeThing.data);
-tree = linkage(treeThing.data, 'single', 'correlation');
-dendrogram(tree, 'Labels', treeLabels.labels);
