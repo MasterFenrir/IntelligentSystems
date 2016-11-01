@@ -1,12 +1,9 @@
 function [ ] = plotNormalDistributions( S1, S2 )
 %PLOTNOR Plot the normal distributions, combined with the scatter plots.
 
-    res1 = mle(S1);
-    mean1 = res1(1);
-    stddef1 = res1(2);
-    res2 = mle(S2);
-    mean2 = res2(1);
-    stddef2 = res2(2);    
+    
+    [mean1, stddef1] = meanAndStdef(S1);
+    [mean2, stddef2] = meanAndStdef(S2);    
 
     iptsetpref('ImshowBorder','tight');
     figure(2);

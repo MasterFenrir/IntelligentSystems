@@ -1,7 +1,7 @@
  normdist = load('normdist(1).mat');
 
-  plotScatter(normdist.S1, normdist.S2, normdist.T);
-%    plotNormalDistributions(normdist.S1, normdist.S2);
+ % plotScatter(normdist.S1, normdist.S2, normdist.T);
+    plotNormalDistributions(normdist.S1, normdist.S2);
 %   plotPosteriorProbability(normdist.S1, normdist.S2, normdist.T);
 %  [first, second] = decisionBoundarySolver(normdist.S1, normdist.S2);
 % plotClassified(normdist.S1, normdist.S2, normdist.T, first, second);
