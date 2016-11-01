@@ -13,6 +13,6 @@ function [  ] = plotScatter( S1, S2, T )
     ylabel(['Value'],'fontsize',16);
     set(gca,'fontsize',16)
 
-    print('img/sc', '-dpng')
+    %print('img/sc', '-dpng')
 end
 

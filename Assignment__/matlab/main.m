@@ -1,12 +1,12 @@
-% normdist = load('normdist(1).mat');
+ normdist = load('normdist(1).mat');
 
-%   plotScatter(normdist.S1, normdist.S2, normdist.T);
-%   plotNormalDistributions(normdist.S1, normdist.S2);
+  plotScatter(normdist.S1, normdist.S2, normdist.T);
+%    plotNormalDistributions(normdist.S1, normdist.S2);
 %   plotPosteriorProbability(normdist.S1, normdist.S2, normdist.T);
- [first, second] = decisionBoundarySolver(normdist.S1, normdist.S2);
+%  [first, second] = decisionBoundarySolver(normdist.S1, normdist.S2);
 % plotClassified(normdist.S1, normdist.S2, normdist.T, first, second);
-[p1, p2] = priorProbability(normdist.S1, normdist.S2);
-[mean, stddef] = meanAndStdef(normdist.S2)
+% [p1, p2] = priorProbability(normdist.S1, normdist.S2);
+% [mean, stddef] = meanAndStdef(normdist.S2)
 
 % [S1first, S1second] = plotCDF(p1, normdist.S1, -40:0.05:100, first, second, 'S1_CDF');
 % 
@@ -18,8 +18,8 @@
 
 % decisionBoundarySolver(normdist.S1, normdist.S2);
 
-treeThing = load('dataAEX.mat');
-treeLabels = load('labelsAEX.mat');
+% treeThing = load('dataAEX.mat');
+% treeLabels = load('labelsAEX.mat');
 % dists = pdist(treeThing.data);
-tree = linkage(treeThing.data, 'single', 'correlation');
-dendrogram(tree, 'Labels', treeLabels.labels);
+% tree = linkage(treeThing.data, 'single', 'correlation');
+% dendrogram(tree, 'Labels', treeLabels.labels);
