@@ -50,20 +50,18 @@
 All three data sets are plotted using the Matlab code in \autoref{ss:plscatter} and the result is visible in \autoref{fig:scatter}.
 
 \subsection{Normal distributions}
-To create the normal distributions for \textbf{S1} and \textbf{S2}, we use the maximum likelihood estimation (\textit{mle}) function in Matla to obtain $\textbf{S1}_\mu$, $\textbf{S1}_\sigma$, $\textbf{S2}_\mu$ and $\textbf{S2}_\sigma$. We can feed these values into the \textit{normpdf} function, together with a range over which to calculate the normal distribution. This is done in \autoref{ss:db} and the resulting normal distributions are visible in \autoref{fig:normal}.
+To create the normal distributions for \textbf{S1} and \textbf{S2}, we use the maximum likelihood estimation (\textit{mle}) function in Matla to obtain $\textbf{S1}_\mu$, $\textbf{S1}_\sigma$, $\textbf{S2}_\mu$ and $\textbf{S2}_\sigma$. We can feed these values into the \textit{normpdf} function, together with a range over which to calculate the normal distribution. This is done in \autoref{ss:db} and the resulting normal distributions are visible in \autoref{fig:normal}. \textbf{S1} is \textbf{blue} and \textbf{S2} is \textbf{red}.
 
 \subsection{Estimating the prior probabilities}
-The created normal distributions display the \textit{conditional probability}, i.e. the probability of some value $x$ occuring given we know which set it belongs to. To turn them into something that tells us the set a point $x$ belongs to, we need to calculate the \textit{posterior probability}. In order to do so, we need the \textit{prior probability}, which is the probability that a new datapoint $x$ belongs to one of the two sets. We estimate the \textit{prior probability} by the relative frequencies of occurence:\\
-$\frac{size(S_n)}{size(S_1) + size(S_2)} = P(S_n)$\\
+The created normal distributions display the \textit{conditional probability density}, i.e. the probability of some value $x$ occuring given we know which set it belongs to. To turn them into something that tells us the set a point $x$ belongs to, we need to calculate the \textit{posterior probability}. In order to do so, we need the \textit{prior probability}, which is the probability that a new datapoint $x$ belongs to one of the two sets. We estimate the \textit{prior probability} by the relative frequencies of occurence:\\
+$\frac{size(S_n)}{\sum S_n} = P(S_n)$\\
 Where in this case $n = 1$ or $n = 2$. This is calculated in \autoref{ss:prior}.\\
 The results are:\\
 $P(S_1) = 2/3$\\
 $P(S_2) = 1/3$\\
 
 \subsection{Normalized plots}
-Now, using the \textit{prior probability}, we can create an incomplete  \textit{posterior probability}. It is incomplete because to get the \textit{posterior probability} we normally would use the following formula:\\
-$P(S_n|x) = \frac{P(S_n)p(x|S_n)}{P(x)}$\\
-for both sets. However, this is not necessary as we're only going to use it for fiding the decision criterion and $P(x)$ is simply a constant. Thus, it is enough to multiply the normal distributions with their corresponding \textit{prior probabilities}. This is done in \autoref{ss:postp}. The resulting normal distributions are visible in \autoref{fig:normalalizednormal}.
+Now, using the \textit{prior probability}, we can normalize the two normal distributions. We want to do this for two reasons. First, visually it shows a lot better what the probability density is for a given $x$ when we take both sets into consideration (i.e. the probability density for $x$ in \textbf{S1} and the probability density for $x$ in \textbf{S2}) and secondly, because we take both sets into consideration we need to make sure that the total probability below the curves is exactly 1. Without normalizing it, it would be more than 1. To normalize, it is enough to multiply the normal distributions with their corresponding \textit{prior probabilities}. This is done in \autoref{ss:postp}. The resulting normal distributions are visible in \autoref{fig:normalalizednormal}.
 
 \subsection{Solving}\label{ss:solving}
 To solve for the decision criteria, we have to solve the following equation:\\
@@ -97,7 +95,13 @@ The first one is simple, the cumulatative probability up to 37.1049 using the cu
 See \autoref{fig:S2_CDF}. The total probability of a missclassification is the prior probability minus value marked in the top right plus the value marked on the bottom. This results in a classification error of 0.0404.
 
 \section{Dendrogram}
+For this exercise a dataset of AEX shares was considered. More specifically the data set is de relative change of the stock values per day, for 277 trading days in some year. 
 
+We will try to see if there might be some clusters of similar stocks in this dataset. The first step will be to create a hierarchical clustering of the data and visualize the results. For this visualization we will use a dendrogram, which can be seen in figure \autoref{fig:dendrogram}. For this dendrogram an euclidean distance measure was used, however squared euclidean could work as well, when keeping in mind that larger distances would be exaggerated in the resulting dendrogram. For the linkage strategy a complete linkage was chosen which will lead to more compact clusters then single linkage, which can lead to very long irregular clusters.
+
+When we take a look at the dendrogram we can see that several of the largest companies are all grouped as very similar to the AEX index as a whole. These are RDS and then AH, HEIN and UNIL, where these last tree are al tree are all closely related to the foods industrie. 
+
+When we start looking for places where we might want to make a cut in this dendrogram. We could cut of only the AEG stock which seems to be by far the furthest removed from the other stocks. Other cuts that would be interesting would be one at around 0.35 or at around 0.45 euclidean distance between the 277 measurements of the stock growths. Al these cuts would be in places where the higher level clusters would be significantly less compact as the lower clusters. which can be seen by there being a lot of vertical space between the branching point in this area. 
 
 \appendix
 \section{Figures}
@@ -115,7 +119,7 @@ See \autoref{fig:S2_CDF}. The total probability of a missclassification is the p
 \simplefigure{./matlab/img/S2_CDF.png}{The cumulatative probability for \textbf{S2}, normalized using the prior probability}{fig:S2_CDF}
 
 \subsection{Hierarchical clustering}
-\simplefigure{./images/dendogram.png}{A dendogram of the Hierarchical clustering of the relative changes in stock values of several stock indexes}{fig:dendogram}
+\simplefigure{./images/dendogram.png}{A dendrogram of the Hierarchical clustering of the relative changes in stock values of several stock indexes}{fig:dendrogram}
 
 \section{Code}
 \subsection{Normal Distributions}
@@ -135,6 +139,8 @@ See \autoref{fig:S2_CDF}. The total probability of a missclassification is the p
 \mcode{./matlab/plotCDF.m}{lst:plcdf}
 \subsubsection{meanAndStdef}
 \mcode{./matlab/meanAndStdef.m}{lst:mnstddef}
+\subsection{plotdendrogram}
+\mcode{./matlab/plotdendogram.m}{lst:dendrogram}
 
 \subsection{Dendrogram}
 
